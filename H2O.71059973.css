@@ -1,0 +1,2 @@
+:root{font-size:106.25%}*,:after,:before{padding:0;margin:0;box-sizing:border-box}body,html{width:100%;position:relative;min-height:100vh}.fadeFromTop{opacity:0;animation:fadeFromTop .5s forwards}@keyFrames fadeFromTop{0%{opacity:0;transform:translateY(-100px)}to{opacity:1;transform:translateY(0)}}
+/*# sourceMappingURL=https://l-blondy.github.io/H2O/H2O.71059973.css.map */
