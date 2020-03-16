@@ -1,0 +1,25 @@
+{
+  "name": "H2O",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "babel-plugin-styled-components": "^1.10.7",
+    "gh-pages": "^2.2.0",
+    "parcel-bundler": "^1.12.4",
+    "styled-components": "^5.0.1"
+  },
+  "dependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-router-dom": "^5.1.2"
+  }
+}
