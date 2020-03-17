@@ -67,6 +67,8 @@ const Nav = styled.nav`
 const NavLinks = styled.ul`
 	display: flex;
 	transition: transform 300ms;
+	white-space: nowrap;
+	transform: translateX(1em);
 
 	@media screen and (max-width: ${ breakpoint }){
 		position: fixed;
@@ -91,12 +93,12 @@ const Li = styled.li`
 	&::after,&::before {
 		content:"";
 		width: 100%;
-		height: 2px;
+		height: 3px;
 		position: absolute;
 		left: 0;
 		background: ${ clr.prim };
 		transform: scaleX(0);
-		opacity: 0.5;
+		opacity: 0.7;
 		transform-origin: bottom;
 		transition: transform 150ms 30ms;
 	}

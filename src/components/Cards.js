@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import placeholder from "../assets/cards/card_placeholder_desktop.jpg";
 import src_desktop from "../assets/cards/desktop/*.*";
 import styled from "styled-components";
@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { clr, fontFam, bp } from "../style-variables";
 import { useWindowSize, useLazyImg } from "../hooks";
 
-function Cards() {
+function Cards( { fullHeight } ) {
 
 	const windowSize = useWindowSize();
 	const [ minHeight, setMinHeight ] = useState();
@@ -17,7 +17,7 @@ function Cards() {
 	}, [ windowSize ] );
 
 	return (
-		<CardsContainer className="cards-container" minHeight={ minHeight + "px" } >
+		<CardsContainer className="cards-container" minHeight={ fullHeight && ( minHeight + "px" ) } >
 			<Card
 				to="/"
 				title="Predicting ICU Transfers"
@@ -60,21 +60,21 @@ function Cards() {
 
 function Card( { to, title, src, placeholder } ) {
 
-	const SRC = useLazyImg( src, placeholder );
+	const ref = useLazyImg( src, placeholder );
 
 	return (
 		<LinkStyled to={ to }>
-			<Title>{ title }</Title>
 			<WrapImg>
-				<img src={ SRC } />
+				<img { ...ref } />
 			</WrapImg>
+			<Title>{ title }</Title>
 		</LinkStyled>
 	);
 }
 
 const CardsContainer = styled.div`
 	width: 100%;
-	min-height: ${props => props.minHeight };
+	min-height: ${props => props.minHeight ? props.minHeight : "initial" };
 	display: flex;
 	justify-content: space-between;
 	align-content: flex-start;
@@ -94,9 +94,16 @@ const LinkStyled = styled( Link )`
 	font-size: 0;
 	margin: 1rem 0;
 	width: 31%;
+	overflow: hidden;
 
 	@media screen and (max-width: ${ bp.tablet }) {
 		width: 48%;
+	}
+	@media screen and (max-width: ${ bp.phone }) {
+		margin: 0;
+	}
+	@media screen and (max-width: 500px) {
+		margin: 2vw 0;
 	}
 `;
 const Title = styled.div`
@@ -110,13 +117,38 @@ const Title = styled.div`
 	font-weight: bold;
 	letter-spacing:0.5px;
 	padding: 0.5rem 0.7rem 0.4rem 0.7rem;
+	white-space: nowrap;
+
+	@media screen and (max-width: ${ bp.phone }) {
+		top: 50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+		background: none;
+		white-space: initial;
+		text-align: center;
+		font-size: calc(3vw + 0.4rem);
+	}
 `;
 const WrapImg = styled.div`
 	width: 100%;
+	overflow: hidden;
 
 	img {
 		max-width: 100%;
-		object-fit:contain;
+	}
+
+	@media screen and (max-width: ${ bp.phone }) {
+		padding-top: 100%;
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			max-width: initial;
+			max-height: 100%;
+			filter: brightness(0.4)
+		}
 	}
 `;
 
