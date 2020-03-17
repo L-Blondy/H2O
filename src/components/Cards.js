@@ -80,12 +80,15 @@ const CardsContainer = styled.div`
 	align-content: flex-start;
 	flex-wrap: wrap;
 	padding-top: 4rem;
+	padding-bottom: 4rem;
 
 	@media screen and (max-width: ${ bp.tablet }) {
 		padding-top: 3rem;
+		padding-bottom: 3rem;
 	}
 	@media screen and (max-width: ${ bp.phone }) {
 		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 `;
 const LinkStyled = styled( Link )`
