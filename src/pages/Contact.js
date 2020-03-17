@@ -1,12 +1,12 @@
 import React from 'react';
-import { BannerContainer, BannerTitle, BannerHeadline } from "../components/Generic";
+import { Banner } from "../components";
 
 function Contact() {
 	return (
-		<BannerContainer>
-			<BannerTitle>Contact us</BannerTitle>
-			<BannerHeadline>Share your case with us !</BannerHeadline>
-		</BannerContainer>
+		<Banner
+			title="Contact us"
+			headLine="Share your case with us !"
+		/>
 	);
 }
 

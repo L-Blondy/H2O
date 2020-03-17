@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
-import { Logo, Burger } from "./";
-import { MainContainer } from "./Generic";
+import { Logo, Burger, MainContainer } from "./";
 import { fontFam, clr } from "../style-variables";
 
-const breakpoint = "1099.8px";
+const breakpoint = "767.8px";
 
 function Navbar() {
 	const [ isOpen, setIsOpen ] = useState( false );
@@ -23,7 +22,7 @@ function Navbar() {
 	};
 
 	return (
-		<MainContainer className={ clr.lightGradient }>
+		<MainContainer background={ clr.lightGradient }>
 			<Nav>
 				<LogoStyled className="logo-light" />
 				<BurgerStyled onClick={ handleBurgerClick } isOpen={ isOpen } />

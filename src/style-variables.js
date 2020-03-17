@@ -12,4 +12,5 @@ export const clr = {
 };
 export const bp = {
 	phone: "576px",
+	tablet: "1100px"
 };

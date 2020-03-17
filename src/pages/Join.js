@@ -1,12 +1,12 @@
 import React from 'react';
-import { BannerContainer, BannerTitle, BannerHeadline } from "../components/Generic";
+import { Banner } from "../components";
 
 function Join() {
 	return (
-		<BannerContainer>
-			<BannerTitle>Join us</BannerTitle>
-			<BannerHeadline>The right place to apply !</BannerHeadline>
-		</BannerContainer>
+		<Banner
+			title="Join us"
+			headLine="The right place to apply !"
+		/>
 	);
 }
 

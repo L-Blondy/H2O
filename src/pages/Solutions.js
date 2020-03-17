@@ -1,12 +1,19 @@
 import React from 'react';
-import { BannerContainer, BannerTitle, BannerHeadline } from "../components/Generic";
+import { MainContainer, Banner, Cards } from "../components";
+import { clr } from "../style-variables";
+
 
 function Solutions() {
 	return (
-		<BannerContainer>
-			<BannerTitle>Solutions</BannerTitle>
-			<BannerHeadline>Check out what our services might help you with</BannerHeadline>
-		</BannerContainer>
+		<>
+			<Banner
+				title="Solutions"
+				headLine="Check out what our services might help you with"
+			/>
+			<MainContainer background={ clr.lightGradient }>
+				<Cards />
+			</MainContainer>
+		</>
 	);
 }
 
