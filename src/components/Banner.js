@@ -1,16 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { MainContainer } from "./";
 import { fontFam, clr, bp } from "../style-variables";
 
 export default function Banner( { title, headLine } ) {
 	return (
-		<MainContainer background={ clr.bannerGradient }>
-			<BannerContainer>
-				<BannerTitle>{ title }</BannerTitle>
-				<BannerHeadline>{ headLine }</BannerHeadline>
-			</BannerContainer>
-		</MainContainer>
+		<BannerContainer>
+			<BannerTitle>{ title }</BannerTitle>
+			<BannerHeadline>{ headLine }</BannerHeadline>
+		</BannerContainer>
 	);
 }
 
@@ -44,6 +41,10 @@ const BannerHeadline = styled.h3`
 	letter-spacing: 0.02em;
 	padding-top:0.3em;
 	padding-bottom:0.7em;
+
+	@media screen and (max-width: ${ bp.burger }) {
+		letter-spacing: 0;
+	}
 
 	@media screen and (max-width: ${bp.phone }){
 		display: none;

@@ -1,12 +1,15 @@
 import React from 'react';
-import { Banner } from "../components";
+import { Banner, MainContainer } from "../components";
+import { clr } from "../style-variables";
 
 function Join() {
 	return (
-		<Banner
-			title="Join us"
-			headLine="The right place to apply !"
-		/>
+		<MainContainer background={ clr.bannerGradient }>
+			<Banner
+				title="Join us"
+				headLine="The right place to apply !"
+			/>
+		</MainContainer>
 	);
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Navbar } from "./components";
+import { Navbar, Footer } from "./components";
 import * as Page from "./pages";
 
 function App() {
@@ -28,6 +28,8 @@ function App() {
 					<Page.Contact />
 				) } />
 			</Switch>
+
+			<Footer />
 		</BrowserRouter>
 	);
 }

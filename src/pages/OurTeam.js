@@ -1,12 +1,15 @@
 import React from 'react';
-import { Banner } from "../components";
+import { Banner, MainContainer } from "../components";
+import { clr } from "../style-variables";
 
 function OurTeam() {
 	return (
-		<Banner
-			title="Our Team"
-			headLine="Meet the people that work with us"
-		/>
+		<MainContainer background={ clr.bannerGradient }>
+			<Banner
+				title="Our Team"
+				headLine="Meet the people that work with us"
+			/>
+		</MainContainer>
 	);
 }
 

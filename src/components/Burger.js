@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from "styled-components"
+import React from 'react';
+import styled from "styled-components";
 
 function Burger( props ) {
 	return (
@@ -10,12 +10,12 @@ function Burger( props ) {
 				<div className="l3"></div>
 			</div>
 		</BurgerStyled>
-	)
+	);
 }
-export default Burger
+export default Burger;
 
-const duration = "1000ms"
-const curve = ""
+const duration = "1000ms";
+const curve = "";
 
 const BurgerStyled = styled.div`
 
@@ -35,8 +35,8 @@ const BurgerStyled = styled.div`
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		height: 2px;
-		width: 26px;
+		height: 3px;
+		width: 55%;
 		background: white;
 		transition: transform ${ duration };
 		animation-duration: ${ duration };
@@ -107,7 +107,7 @@ const BurgerStyled = styled.div`
 	}
 	@keyframes l1-open {
 		0% {
-			transform: translate(-50%,calc(-50% - 11px));
+			transform: translate(-50%,calc(-50% - 12px));
 		}
 		25% {
 			transform: translate(-50%, -50%);
@@ -135,7 +135,7 @@ const BurgerStyled = styled.div`
 	}
 	@keyframes l3-open {
 		0% {
-			transform: translate(-50%,calc(-50% + 11px));
+			transform: translate(-50%,calc(-50% + 12px));
 		}
 		25% {
 			transform: translate(-50%, -50%);
@@ -155,10 +155,10 @@ const BurgerStyled = styled.div`
 			transform: translate(-50%, -50%);
 		}
 		60% {
-			transform: translate(-50%,calc(-50% - 12px));
+			transform: translate(-50%,calc(-50% - 13px));
 		}
 		100% {
-			transform: translate(-50%,calc(-50% - 11px));
+			transform: translate(-50%,calc(-50% - 12px));
 		}
 	}
 	@keyframes l2-close {
@@ -180,10 +180,10 @@ const BurgerStyled = styled.div`
 			transform: translate(-50%, -50%);
 		}
 		60% {
-			transform: translate(-50%,calc(-50% + 12px));
+			transform: translate(-50%,calc(-50% + 13px));
 		}
 		100% {
-			transform: translate(-50%,calc(-50% + 11px));
+			transform: translate(-50%,calc(-50% + 12px));
 		}
 	}
 	@keyframes roll {
@@ -200,4 +200,4 @@ const BurgerStyled = styled.div`
 			transform: translateX(0);
 		}
 	}
-`
+`;

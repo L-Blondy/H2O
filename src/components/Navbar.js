@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
 import { Logo, Burger, MainContainer } from "./";
-import { fontFam, clr } from "../style-variables";
-
-const breakpoint = "767.8px";
+import { fontFam, clr, bp } from "../style-variables";
 
 function Navbar() {
 	const [ isOpen, setIsOpen ] = useState( false );
@@ -60,17 +58,16 @@ const Nav = styled.nav`
 	width: 100%;
 	height: 90px;
 
-	@media screen and (max-width: ${ breakpoint }){
+	@media screen and (max-width: ${ bp.burger }){
 		height: 60px;
 	}
 `;
 const NavLinks = styled.ul`
 	display: flex;
 	transition: transform 300ms;
-	white-space: nowrap;
 	transform: translateX(1em);
 
-	@media screen and (max-width: ${ breakpoint }){
+	@media screen and (max-width: ${ bp.burger }){
 		position: fixed;
 		flex-direction: column;
 		align-items:center;
@@ -78,7 +75,7 @@ const NavLinks = styled.ul`
 		top: 50%;
 		left: 50%;
 		transform: ${ props => props.isOpen ? "translate(-50%,-50%)" : "translate(-50%,-152%)" };
-		background: radial-gradient(50% 50% at 50% 50%, #595E5E 0%, #434747 100%);
+		background: radial-gradient( 50% 50% at 50% 50%, #595E5E 0%, #434747 100% );
 		z-index: 1000;
 		height: 100%;
 		width: 100%;
@@ -86,7 +83,6 @@ const NavLinks = styled.ul`
 	}
 `;
 const Li = styled.li`
-	list-style: none;
 	display: flex;
 	position: relative;
 
@@ -116,12 +112,11 @@ const Li = styled.li`
 		transform: scaleX(1);
 	}
 
-	@media screen and (max-width: ${ breakpoint }){
+	@media screen and (max-width: ${ bp.burger }){
 		padding: 0.5rem;
 	}
 `;
 const NavLinkStyled = styled( NavLink )`
-	text-decoration: none;
 	font-family: ${ fontFam.prim };
 	color: ${ clr.navlinks };
 	padding: 0 1em;
@@ -135,7 +130,7 @@ const NavLinkStyled = styled( NavLink )`
 		color: ${clr.prim };
 	}
 
-	@media screen and (max-width: ${ breakpoint }){
+	@media screen and (max-width: ${ bp.burger }){
 		color: #e8e8e8;
 		font-size: calc(1rem  + 2vw);
 		letter-spacing: 2px;
@@ -144,27 +139,27 @@ const NavLinkStyled = styled( NavLink )`
 const Contact = styled( NavLinkStyled )`
 	display: none;
 
-	@media screen and (max-width: ${ breakpoint }){
+	@media screen and (max-width: ${ bp.burger }){
 			display: flex;
 			color: ${ clr.navlinks };
 			font-weight: bold;
 			padding-right: 0;
-			font-size: 1rem;
+			font-size: 1.05rem;
 			letter-spacing: 0;
 	}
 `;
 const BurgerStyled = styled( Burger )`
 	position: fixed;
-	bottom: 2rem;
-	right: 1rem;
-	height: 50px;
-	width: 50px;
+	bottom: 1.6rem;
+	right: 0.8rem;
+	height: calc(4vw + 45px);
+	width: calc(4vw + 45px);
 	border-radius: 50%;
 	background: ${ clr.prim };
 	z-index: 1001;
 	display: none;
 
-	@media screen and (max-width: ${ breakpoint }){
+	@media screen and (max-width: ${ bp.burger }){
 		display: initial;
 	}
 `;
@@ -173,7 +168,7 @@ const LogoStyled = styled( Logo )`
 	align-items:center;
 	max-width: 80px;
 
-	@media screen and (max-width: ${ breakpoint }){
+	@media screen and (max-width: ${ bp.burger }){
 		max-width: 70px;
 	}
 `;

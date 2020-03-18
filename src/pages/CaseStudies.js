@@ -1,12 +1,15 @@
 import React from 'react';
-import { Banner } from "../components";
+import { Banner, MainContainer } from "../components";
+import { clr } from "../style-variables";
 
 function CaseStudies() {
 	return (
-		<Banner
-			title="Case studies"
-			headLine="What our customers say about us"
-		/>
+		<MainContainer background={ clr.bannerGradient }>
+			<Banner
+				title="Case studies"
+				headLine="What our customers say about us"
+			/>
+		</MainContainer>
 	);
 }
 

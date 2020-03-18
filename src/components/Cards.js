@@ -67,7 +67,11 @@ function Card( { to, title, src, placeholder } ) {
 			<WrapImg>
 				<img { ...ref } />
 			</WrapImg>
-			<Title>{ title }</Title>
+			<Title className="title">{ title }</Title>
+			<div className="hover">
+				<div className="hover__title">{ title }</div>
+				<div className="hover__learn-more">Learn more</div>
+			</div>
 		</LinkStyled>
 	);
 }
@@ -98,12 +102,95 @@ const LinkStyled = styled( Link )`
 	margin: 1rem 0;
 	width: 31%;
 	overflow: hidden;
+	border-radius: 3px;
+
+	.hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 2;
+		font-size: 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: ${ clr.fontLight };
+		font-family: ${ fontFam.prim };
+		transform: translateY(110%);
+		transition: transform 500ms;
+		background: rgba(0,0,0,0.4);
+
+		&__title {
+			position: relative;
+			font-size: 1.2rem;
+			text-align: center;
+			transform: translateY(-6px);
+			letter-spacing: 1px;
+			padding: 0 1.5rem;
+
+			&::after {
+				position: absolute;
+				content: "";
+				width: 30px;
+				height: 2px;
+				background: ${ clr.prim };
+				top: 100%;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+		&__learn-more {
+			font-size: 0.9rem;
+			text-decoration: underline rgba(255,255,255,0.6);
+		}
+	}
+
+	@media screen and (min-width: ${ bp.burger }) {
+
+		&:hover,
+		&:focus {
+			img {
+				transform: scale(1.1);
+				filter: brightness(0.6);
+			}
+			.title {
+				transform: translateX(-101%);
+			}
+			.hover {
+				transform: translateY(0);
+			}
+		}
+	}
+
+	@media screen and (max-width: ${ bp.burger }) {
+		&:hover,
+		&:focus {
+			img {
+				transform: scale(1.1);
+				filter: brightness(0.8);
+			}
+			.title {
+				text-decoration: underline;
+			}
+		}
+	}
 
 	@media screen and (max-width: ${ bp.tablet }) {
 		width: 48%;
 	}
 	@media screen and (max-width: ${ bp.phone }) {
 		margin: 0;
+		img {
+			transform: translate(-50%,-50%);
+		}
+		&:hover,
+		&:focus {
+			img {
+				transform: translate(-50%,-50%) scale(1.1);
+			}
+		}
 	}
 	@media screen and (max-width: 500px) {
 		margin: 2vw 0;
@@ -113,23 +200,29 @@ const Title = styled.div`
 	position: absolute;
 	top: 17%;
 	left: 0;
-	font-size: 1rem;
+	font-size: 1.08rem;
 	background: ${clr.prim };
 	color: ${clr.fontLight };
 	font-family: ${fontFam.prim };
-	font-weight: bold;
 	letter-spacing:0.5px;
 	padding: 0.5rem 0.7rem 0.4rem 0.7rem;
 	white-space: nowrap;
+	pointer-events:none;
+	transition: transform 500ms;
 
-	@media screen and (max-width: ${ bp.phone }) {
+	@media screen and (max-width: ${ bp.burger }) {
 		top: 50%;
 		left:50%;
 		transform: translate(-50%,-50%);
 		background: none;
 		white-space: initial;
 		text-align: center;
-		font-size: calc(3vw + 0.4rem);
+		font-size: calc(1vw + 1rem);
+	}
+	@media screen and (max-width: ${ bp.phone }) {
+		font-size: 1.15rem;
+		font-weight: bold;
+		letter-spacing:1px;
 	}
 `;
 const WrapImg = styled.div`
@@ -138,8 +231,16 @@ const WrapImg = styled.div`
 
 	img {
 		max-width: 100%;
+		transition-property: transform filter;
+		transition-duration: 500ms;
+		filter: brightness(0.85);
 	}
 
+	@media screen and (max-width: ${ bp.burger }) {
+		img{
+			filter: brightness(0.45);
+		}
+	}
 	@media screen and (max-width: ${ bp.phone }) {
 		padding-top: 100%;
 
@@ -147,10 +248,8 @@ const WrapImg = styled.div`
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate(-50%,-50%);
 			max-width: initial;
 			max-height: 100%;
-			filter: brightness(0.4)
 		}
 	}
 `;

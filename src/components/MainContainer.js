@@ -16,7 +16,7 @@ const MC = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	background: ${props => props.background }
+	background: ${props => props.background };
 `;
 const Contained = styled.div`
 	width: 1000px;

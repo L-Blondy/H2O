@@ -12,6 +12,7 @@ function loadImg( entries ) {
 			temp.onload = () => {
 				e.target.src = temp.src;
 			};
+			observer.unobserve( e.target );
 		}
 	} );
 }
