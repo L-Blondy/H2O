@@ -18,7 +18,7 @@ function useWindowSize() {
 		}
 
 		function handleResize() {
-			window.innerWidth != windowSize.width && setWindowSize( getSize() );
+			setWindowSize( getSize() );
 		}
 
 		window.addEventListener( 'resize', handleResize );

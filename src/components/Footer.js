@@ -13,7 +13,7 @@ function Footer() {
 				<LogoStyled className="logo-dark" />
 
 				<Nav>
-					<NavLinks>
+					<UlNavLinks>
 						<Li>
 							<LinkStyled to="/">Home</LinkStyled>
 						</Li>
@@ -32,26 +32,26 @@ function Footer() {
 						<Li>
 							<LinkStyled to="/contact">Contact</LinkStyled>
 						</Li>
-					</NavLinks>
+					</UlNavLinks>
 				</Nav>
 
-				<ExternalLinks>
-					<Li>
+				<UlExternalLinks>
+					<li>
 						<a href="https://www.google.com" target="_blank" rel="noreferrer noopener">
 							<Icon src={ iconsSRC.github.svg } />
 						</a>
-					</Li>
-					<Li>
+					</li>
+					<li>
 						<a href="https://www.google.com" target="_blank" rel="noreferrer noopener">
 							<Icon src={ iconsSRC.linkedin.svg } />
 						</a>
-					</Li>
-					<Li>
+					</li>
+					<li>
 						<a href="https://www.google.com" target="_blank" rel="noreferrer noopener">
 							<Icon src={ iconsSRC.twitter.svg } />
 						</a>
-					</Li>
-				</ExternalLinks>
+					</li>
+				</UlExternalLinks>
 
 			</Container>
 
@@ -71,7 +71,14 @@ const FooterStyled = styled.footer`
 	align-items: center;
 	flex-direction: column;
 	background: ${ clr.sec };
-	padding: 10rem 300px;
+	padding: 4rem 0;
+
+	@media screen and (max-width: 1100px) {
+		padding: 5rem 0;
+	}
+	@media screen and (max-width: ${ bp.phone }) {
+		padding: 3rem 0;
+	}
 `;
 const Container = styled.div`
 	position: relative;
@@ -79,40 +86,103 @@ const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 1200px;
+
+	@media screen and (max-width: 1400px) {
+		align-items: flex-start;
+		width: 1000px;
+	}
+	@media screen and (max-width: 1100px) {
+		flex-wrap: wrap;
+		justify-content: center;
+		width: 500px;
+		max-width: 90%;
+	}
+	@media screen and (max-width: ${ bp.phone }) {
+		flex-direction: column;
+		align-items: center;
+	}
 `;
 const LogoStyled = styled( Logo )`
-	width: 130px;
+	width: 201px;
 	flex-shrink: 0;
+
+	img {
+		width: 150px;
+	}
+
+	@media screen and (max-width: 1100px) {
+		order: 1;
+		flex-basis: 50%;
+	}
+	@media screen and (max-width: ${ bp.phone }) {
+		width: 150px;
+	}
 `;
 const Ul = styled.ul`
 	display: flex;
 	height: 100%;
 	flex-shrink: 0;
+	justify-content: center;
 `;
-const Nav = styled.nav`
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
-`;
-const NavLinks = styled( Ul )`
-	@media screen and (max-width: 1600px) {
-		flex-direction: column;
+const UlExternalLinks = styled( Ul )` 
+	li {
+		display: flex;
 		align-items: center;
+		margin: 0 0.5rem;
+	}
+
+	@media screen and (max-width: 1400px) {
+		padding-top: 1em;
+	}
+	@media screen and (max-width: 1100px) {
+		order: 3;
+		flex-basis: 50%;
+		justify-content: flex-end;
 	}
 `;
-const ExternalLinks = styled( Ul )` 
-
+const Nav = styled.nav`
+	@media screen and (max-width: 1400px) {
+		max-width: 18em;
+		padding-top: 0.3rem;
+	}
+	@media screen and (max-width: 1100px) {
+		order: 4;
+		padding-top: 2rem;
+	}
+	@media screen and (max-width: ${ bp.phone }) {
+		order: 2;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
 `;
+const UlNavLinks = styled( Ul )`
+	flex-wrap: wrap;
+	justify-content: space-between;
+`;
+
 const Li = styled.li`
 	display: flex;
 	align-items: center;
-	margin: calc(0.5rem + 0.2vw);
+	padding: 0 0.5rem;
+
+	@media screen and (max-width: 1400px) {
+		flex-basis: 34%;
+		min-width: 7em;
+		padding: 0.8rem 0;
+	}
+	@media screen and (max-width: ${ bp.phone }) {
+		flex-basis: 100%;
+		justify-content: center;
+		padding: 0.3rem 0;
+	}
 `;
+
 const LinkStyled = styled( Link )`
 	color: #F0F0F0;
 	font-family: ${ fontFam.sec };
 	transition: filter 100ms;
+	padding: 0.4rem;
 
 	&:hover, 
 	&:focus {
@@ -136,4 +206,12 @@ const Copyright = styled.div`
 	font-family: ${ fontFam.sec };
 	color: #999999;
 	font-size: 0.88235rem;
+	margin-top: 3em;
+
+	@media screen and (max-width: ${ bp.phone }) {
+		white-space: pre-line;
+		width: 17em;
+		text-align: center;
+		line-height: 1.5em;
+	}
 `;

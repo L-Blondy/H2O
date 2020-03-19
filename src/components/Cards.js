@@ -1,23 +1,17 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import placeholder from "../assets/cards/card_placeholder_desktop.jpg";
 import src_desktop from "../assets/cards/desktop/*.*";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { clr, fontFam, bp } from "../style-variables";
-import { useWindowSize, useLazyImg } from "../hooks";
+import { useLazyImg, useFullMinHeight } from "../hooks";
 
 function Cards( { fullHeight } ) {
 
-	const windowSize = useWindowSize();
-	const [ minHeight, setMinHeight ] = useState();
-
-	useEffect( () => {
-		const container = document.querySelector( ".cards-container" );
-		setMinHeight( windowSize.height - container.getBoundingClientRect().top );
-	}, [ windowSize ] );
+	const minHeight = useFullMinHeight( ".cards-container", fullHeight );
 
 	return (
-		<CardsContainer className="cards-container" minHeight={ fullHeight && ( minHeight + "px" ) } >
+		<CardsContainer className="cards-container" minHeight={ minHeight } >
 			<Card
 				to="/"
 				title="Predicting ICU Transfers"
@@ -32,7 +26,7 @@ function Cards( { fullHeight } ) {
 			/>
 			<Card
 				to="/"
-				title={ `Predicting ${ windowSize.width > 700 || windowSize.width < 576 ? "Hospital" : "" } Readmissions` }
+				title={ `Predicting ${ window.innerWidth > 700 || window.innerWidth < 576 ? "Hospital" : "" } Readmissions` }
 				src={ src_desktop.predicting_hospital_readmissions.jpg }
 				placeholder={ placeholder }
 			/>
@@ -78,7 +72,7 @@ function Card( { to, title, src, placeholder } ) {
 
 const CardsContainer = styled.div`
 	width: 100%;
-	min-height: ${props => props.minHeight ? props.minHeight : "initial" };
+	min-height: ${props => props.minHeight || "initial" };
 	display: flex;
 	justify-content: space-between;
 	align-content: flex-start;
