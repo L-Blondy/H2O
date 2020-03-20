@@ -20,7 +20,7 @@ const MC = styled.div`
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	transform: translateZ(500px);
+	transform: translateZ(0);
 `;
 const Contained = styled.div`
 	width: 1000px;

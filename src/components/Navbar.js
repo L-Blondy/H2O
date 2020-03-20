@@ -20,7 +20,7 @@ function Navbar() {
 	};
 
 	return (
-		<MainContainer background={ clr.lightGradient }>
+		<MainContainer2 background={ clr.lightGradient }>
 			<Nav>
 				<LogoStyled className="logo-light" />
 				<BurgerStyled onClick={ handleBurgerClick } isOpen={ isOpen } />
@@ -46,11 +46,15 @@ function Navbar() {
 				</NavLinks>
 				<Contact to="/contact">Contact us</Contact>
 			</Nav>
-		</MainContainer>
+		</MainContainer2>
 
 	);
 }
-
+const MainContainer2 = styled( MainContainer )`
+	@media screen and (max-width: ${ bp.burger }){
+		transform: none;
+	}
+`;
 const Nav = styled.nav`
 	display: flex;
 	justify-content:space-between;
@@ -77,7 +81,7 @@ const NavLinks = styled.ul`
 		transform: ${ props => props.isOpen ? "translate(-50%,-50%)" : "translate(-50%,-152%)" };
 		background: radial-gradient( 50% 50% at 50% 50%, #595E5E 0%, #434747 100% );
 		z-index: 1000;
-		height: 100%;
+		height: 100vh;
 		width: 100%;
 		font-weight: bold;
 	}

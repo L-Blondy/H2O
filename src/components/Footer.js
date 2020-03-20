@@ -72,6 +72,7 @@ const FooterStyled = styled.footer`
 	flex-direction: column;
 	background: ${ clr.sec };
 	padding: 4rem 0;
+	transform: translateZ(0);
 
 	@media screen and (max-width: 1100px) {
 		padding: 5rem 0;

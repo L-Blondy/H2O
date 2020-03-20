@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { MainContainer, Text } from "../components";
+import { MainContainer, Text, Cards } from "../components";
 import { useFullMinHeight } from "../hooks";
 import { fontFam, clr } from "../style-variables";
 import headerBg from "../assets/header-bg.jpg";
@@ -12,7 +12,7 @@ function Home() {
 	return (
 		<>
 			<Headers className={ "headers-full-height" } minHeight={ minHeight }>
-				<HalfTop background={ `url( ${ headerBg } )` }>
+				<HalfTop>
 					<H1>AI Serving Healthcare</H1>
 				</HalfTop>
 				<Half background={ clr.lightGradient }>
@@ -21,9 +21,13 @@ function Home() {
 						Our products are built for healthcare professionals deicated to improving disease outcomes and medication costs.
 						Our intuitive software platform allows for better collection and application of real world data for all healthcare related decisions,
 						for the benefit of the patient.
-					</TextStyled>
+						</TextStyled>
 				</Half>
 			</Headers>
+			<MainContainer background={ clr.lightGradient }>
+				<Cards />
+			</MainContainer>
+
 		</>
 	);
 }
@@ -40,6 +44,8 @@ const Half = styled( MainContainer )`
 `;
 const HalfTop = styled( Half )`
 	position: relative;
+	transform-style: preserve-3d;
+	z-index: -1;
 
 	&::before {
 		position: absolute;
@@ -50,6 +56,19 @@ const HalfTop = styled( Half )`
 		height: 100%;
 		background: #004549;
 		opacity: 0.5;
+	}
+	&::after {
+		position: absolute;
+		content: "";
+		background-image: url(${ headerBg });
+		bottom: 0;
+		left: 50%;
+		height: 130%;
+		width: 100%;
+		transform: translateX(-50%)  translateZ(-1px) scale(2.1);
+		background-position: center;
+		background-size: cover;
+		z-index: -100;
 	}
 `;
 const H1 = styled.h1`

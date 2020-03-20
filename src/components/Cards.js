@@ -97,6 +97,7 @@ const LinkStyled = styled( Link )`
 	width: 31%;
 	overflow: hidden;
 	border-radius: 3px;
+	transform: translateZ(0);
 
 	.hover {
 		position: absolute;
@@ -123,6 +124,8 @@ const LinkStyled = styled( Link )`
 			transform: translateY(-6px);
 			letter-spacing: 1px;
 			padding: 0 1.5rem;
+			width: 100%;
+			white-space: normal;
 
 			&::after {
 				position: absolute;
@@ -130,7 +133,7 @@ const LinkStyled = styled( Link )`
 				width: 30px;
 				height: 2px;
 				background: ${ clr.prim };
-				top: 100%;
+				top: calc(100% + 4px);
 				left: 50%;
 				transform: translateX(-50%);
 			}
@@ -138,6 +141,7 @@ const LinkStyled = styled( Link )`
 		&__learn-more {
 			font-size: 0.9rem;
 			text-decoration: underline rgba(255,255,255,0.6);
+			padding-top: 8px;
 		}
 	}
 

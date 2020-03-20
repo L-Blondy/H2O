@@ -18,7 +18,6 @@ const duration = "1000ms";
 const curve = "";
 
 const BurgerStyled = styled.div`
-
 	animation-duration: 2000ms;
 	animation-fill-mode: forwards;
 	animation-timing-function: ${ curve };
