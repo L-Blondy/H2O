@@ -14,10 +14,7 @@ body,
 html {
     width: 100%;
     position: relative;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    perspective: 1px;
+    overflow: hidden;
 }
 
 li {
