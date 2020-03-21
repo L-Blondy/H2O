@@ -1,15 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from "styled-components";
-import { navigationContext } from "../Context";
 import { clr, bp } from "../style-variables";
 
 function Burger( props ) {
 
-	const [ isNavOpen, setIsNavOpen ] = useContext( navigationContext );
-
 	return (
-		<BurgerStyled { ...props } id="roll" onClick={ () => setIsNavOpen( !isNavOpen ) }>
-			<div className={ isNavOpen ? "open" : "close" }>
+		<BurgerStyled { ...props }>
+			<div className="wrapper">
 				<div className="l1"></div>
 				<div className="l2"></div>
 				<div className="l3"></div>
@@ -40,7 +37,8 @@ const BurgerStyled = styled.div`
 		display: initial;
 	}
 
-	.open,.close {
+	&.open > .wrapper,
+	&.close > .wrapper {
 		position: relative;
 		height:100%;
 		width: 100%;
@@ -60,7 +58,7 @@ const BurgerStyled = styled.div`
 		animation-fill-mode: forwards;
 		animation-timing-function: ${ curve }
 	}
-	.open {
+	&.open > .wrapper {
 		animation-name: rotation-open;
 
 		.l1 {
@@ -73,7 +71,7 @@ const BurgerStyled = styled.div`
 			animation-name: l3-open;
 		}
 	}
-	.close {
+	&.close > .wrapper {
 		animation-name: rotation-close;
 
 		.l1 {

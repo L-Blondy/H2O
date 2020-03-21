@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useFullMinHeight( selector, fullHeight = true ) {
-	if ( !fullHeight ) {
-		return "initial";
-	}
+function useMinHeight( selector ) {
 	const [ minHeight, setMinHeight ] = useState();
 
 	useEffect( () => {
@@ -17,7 +14,7 @@ function useFullMinHeight( selector, fullHeight = true ) {
 		return () => window.removeEventListener( "resize", handleResize );
 	}, [] );
 
-	return minHeight + "px";
+	return minHeight;
 }
 
-export default useFullMinHeight;
+export default useMinHeight;

@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
 import { Logo, MainContainer } from "./";
 import { fontFam, clr, bp } from "../style-variables";
+import { NavbarHeightCtx } from "../Context";
 
 function Navbar() {
+
+	const navbarHeight = useContext( NavbarHeightCtx );
 
 	return (
 		<>
 			<MainContainer background={ clr.lightGradient }>
-				<Nav>
+				<Nav navbarHeight={ navbarHeight }>
 					<LogoStyled className="logo-light" />
 					<NavLinks>
 						<Li hideMobile={ true }>
@@ -42,11 +45,7 @@ const Nav = styled.nav`
 	justify-content:space-between;
 	align-items:stretch;
 	width: 100%;
-	height: 90px;
-
-	@media screen and (max-width: ${ bp.burger }){
-		height: 60px;
-	}
+	height: ${props => props.navbarHeight };
 `;
 const NavLinks = styled.ul`
 	display: flex;

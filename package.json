@@ -1,12 +1,13 @@
 {
-  "name": "H2O",
+  "name": "h2o",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "rm -rf dist && parcel build index.html --public-url https://l-blondy.github.io/H2O/",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "analyze": "source-map-explorer dist/H2O.*"
   },
   "author": "",
   "license": "ISC",
@@ -16,12 +17,13 @@
     "@babel/preset-react": "^7.8.3",
     "babel-plugin-styled-components": "^1.10.7",
     "gh-pages": "^2.2.0",
-    "parcel-bundler": "^1.12.4",
-    "styled-components": "^5.0.1"
+    "source-map-explorer": "^2.4.0"
   },
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.1.2",
+    "styled-components": "^5.0.1",
+    "parcel-bundler": "^1.12.4"
   }
 }

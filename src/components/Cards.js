@@ -4,14 +4,12 @@ import src_desktop from "../assets/cards/desktop/*.*";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { clr, fontFam, bp } from "../style-variables";
-import { useLazyImg, useFullMinHeight } from "../hooks";
+import { useLazyImg } from "../hooks";
 
-function Cards( { fullHeight } ) {
-
-	const minHeight = useFullMinHeight( ".cards-container", fullHeight );
+function Cards( { className } ) {
 
 	return (
-		<CardsContainer className="cards-container" minHeight={ minHeight } >
+		<CardsContainer className={ className + " cards-container" } >
 			<Card
 				to="/"
 				title="Predicting ICU Transfers"
@@ -72,22 +70,10 @@ function Card( { to, title, src, placeholder } ) {
 
 const CardsContainer = styled.div`
 	width: 100%;
-	min-height: ${props => props.minHeight || "initial" };
 	display: flex;
 	justify-content: space-between;
 	align-content: flex-start;
 	flex-wrap: wrap;
-	padding-top: 4rem;
-	padding-bottom: 4rem;
-
-	@media screen and (max-width: ${ bp.tablet }) {
-		padding-top: 3rem;
-		padding-bottom: 3rem;
-	}
-	@media screen and (max-width: ${ bp.phone }) {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-	}
 `;
 const LinkStyled = styled( Link )`
 	position: relative;

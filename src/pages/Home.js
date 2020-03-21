@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from "styled-components";
 import { MainContainer, Text, Cards } from "../components";
-import { useFullMinHeight } from "../hooks";
 import { fontFam, clr } from "../style-variables";
 import headerBg from "../assets/header-bg.jpg";
+import { NavbarHeightCtx } from "../Context";
 
 function Home() {
 
-	const minHeight = useFullMinHeight( ".headers-full-height" );
+	const navbarHeight = useContext( NavbarHeightCtx );
 
 	return (
 		<>
-			<Headers className={ "headers-full-height" } minHeight={ minHeight }>
-				<HalfTop>
+			<Headers className={ "headers-full-height" } navbarHeight={ navbarHeight }>
+				<HalfTop vertical="center">
 					<H1>AI Serving Healthcare</H1>
 				</HalfTop>
-				<Half background={ clr.lightGradient }>
+
+				<Half vertical="center" horizontal="center" background={ clr.lightGradient }>
 					<H2>Use prediction models to improve clinical workflow</H2>
 					<TextStyled>
 						Our products are built for healthcare professionals deicated to improving disease outcomes and medication costs.
@@ -23,8 +24,9 @@ function Home() {
 						for the benefit of the patient.
 						</TextStyled>
 				</Half>
+
 			</Headers>
-			<MainContainer background={ clr.lightGradient }>
+			<MainContainer vertical="top" background={ clr.lightGradient }>
 				<Cards />
 			</MainContainer>
 
@@ -36,8 +38,7 @@ export default Home;
 
 const Headers = styled.div`
 	width: 100%;
-	height: ${ props => props.minHeight };
-	min-height: ${ props => props.minHeight };
+	height: calc(100vh - ${ props => props.navbarHeight });
 `;
 const Half = styled( MainContainer )`
 	height: 50%;
@@ -78,11 +79,13 @@ const H1 = styled.h1`
 	font-size: 2.76rem;
 	letter-spacing: 0.05em;
 	font-family: ${ fontFam.prim };
+	text-align: center;
 `;
 const H2 = styled.h2`
 	font-family: ${ fontFam.prim };
 	color: ${ clr.prim };
 	font-size: 1.76rem;
+	text-align: center;
 `;
 const TextStyled = styled( Text )`
 	width: 600px;

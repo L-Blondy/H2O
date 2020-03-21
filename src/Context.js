@@ -1,16 +1,20 @@
 import React, { createContext, useState } from "react";
+import { useWindowSize, useNavbarHeight } from "./hooks";
 
-export const navigationContext = createContext();
-
+export const NavbarHeightCtx = createContext();
+export const WindowSizeCtx = createContext();
 
 
 export default function Context( { children } ) {
 
-	const [ isOpen, setIsOpen ] = useState( false );
+	const windowSize = useWindowSize();
+	const navbarHeight = useNavbarHeight( windowSize );
 
 	return (
-		<navigationContext.Provider value={ [ isOpen, setIsOpen ] }>
-			{ children }
-		</navigationContext.Provider>
+		<WindowSizeCtx.Provider value={ windowSize }>
+			<NavbarHeightCtx.Provider value={ navbarHeight }>
+				{ children }
+			</NavbarHeightCtx.Provider >
+		</WindowSizeCtx.Provider>
 	);
 }

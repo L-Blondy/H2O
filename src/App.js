@@ -1,7 +1,6 @@
 import React from 'react';
-import styled from "styled-components";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Navbar, Footer, Parallax, Burger, MobileNav } from "./components";
+import { Navbar, Footer, Parallax, MobileNav } from "./components";
 import Context from "./Context";
 import * as Page from "./pages";
 
@@ -10,7 +9,6 @@ function App() {
 		<BrowserRouter>
 			<Context>
 				<MobileNav />
-				<Burger />
 
 				<Parallax>
 					<Navbar />
