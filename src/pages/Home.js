@@ -1,19 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styled from "styled-components";
 import { MainContainer, Text, Cards, SectionTitle, SectionContainer } from "../components";
 import { fontFam, clr, bp } from "../style-variables";
-import headerBg from "../assets/header-bg.jpg";
 import { NavbarHeightCtx, WindowSizeCtx } from "../Context";
 
 function Home() {
 
 	const navbarHeight = useContext( NavbarHeightCtx );
 	const windowSize = useContext( WindowSizeCtx );
+	const [ halfTop_bg, setHalfTop_bg ] = useState();
+
+	useEffect( () => {
+		const width = windowSize.width;
+		width < 400 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x400w.jpg" ) ) :
+			width < 500 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x500w.jpg" ) ) :
+				width < 800 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x800w.jpg" ) ) :
+					width < 1100 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x1100w.jpg" ) ) :
+						width < 1600 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x1600w.jpg" ) ) :
+							setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg.jpg" ) );
+
+	}, [ windowSize ] );
 
 	return (
 		<>
 			<Headers className={ "headers-full-height" } navbarHeight={ navbarHeight }>
-				<HalfTop vertical="center" navbarHeight={ navbarHeight }>
+				<HalfTop vertical="center" navbarHeight={ navbarHeight } halfTop_bg={ halfTop_bg }>
 					<H1>AI Serving Healthcare</H1>
 				</HalfTop>
 
@@ -79,14 +90,15 @@ const HalfTop = styled( Half )`
 	&::after {
 		position: absolute;
 		content: "";
-		background-image: url(${ headerBg });
-		bottom: 0;
+		background-image: url(${ props => props.halfTop_bg });
+		top: 50%;
 		left: 50%;
-		height: 130%;
+		height: 120%;
 		width: 100%;
-		transform: translateX(-50%)  translateZ(-1px) scale(2.1);
+		transform: translateX(-50%) translateY(-90%)  translateZ(-1px) scale(2.05);
 		background-position: center;
 		background-size: cover;
+		background-repeat: no-repeat;
 		z-index: -100;
 	}
 `;
