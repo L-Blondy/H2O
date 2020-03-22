@@ -1,6 +1,6 @@
 import React from 'react';
 import { Banner, MainContainer, Text } from "../components";
-import { fontFam, clr, bp } from "../style-variables";
+import { clr } from "../style-variables";
 import styled from "styled-components";
 
 function CaseStudies() {
@@ -49,14 +49,25 @@ function Case( { src, reverse, name, job, quote } ) {
 	console.log( reverse );
 	return (
 		<CaseContainer reverse={ reverse }>
-			<Picture>
-				<Img src={ src } alt="image" />
-			</Picture>
-			<Presentation>
-				<div className="name">{ name }</div>
-				<div className="job">{ job }</div>
-				<Text className="quote"><i>{ quote }</i></Text>
-			</Presentation>
+
+			<div className="picture">
+				<img className="img" src={ src } alt="image" />
+			</div>
+
+			<div className="presentation">
+				<div className="name">
+					{ name }
+				</div>
+
+				<div className="job">
+					{ job }
+				</div>
+
+				<Text className="quote">
+					<i>{ quote }</i>
+				</Text>
+			</div>
+
 		</CaseContainer>
 	);
 }
@@ -66,15 +77,17 @@ const CaseContainer = styled.div`
 	flex-direction: ${props => props.reverse ? "row-reverse" : "row" };
 	width: 100%;
 	text-align: ${props => props.reverse ? "right" : "left" };
-`;
-const Picture = styled.div``;
-const Img = styled.img``;
-const Presentation = styled.div`
-	background: lime;
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+
+	.picture { }
+	.img{ }
+	.presentation {
+		background: lime;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
 `;
 
 export default CaseStudies;

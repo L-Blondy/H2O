@@ -22,6 +22,21 @@ const MC = styled.div`
 	background-repeat: no-repeat;
 	transform: translateZ(0);
 	min-height: ${ props => props.minHeight }px;
+
+	/* section-container */
+	&.section-container {
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+
+		@media screen and (max-width: ${bp.burger }){
+			padding-top: 5rem;
+			padding-bottom: 5rem;
+		}
+		@media screen and (max-width: ${bp.phone }){
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+		}
+	}
 `;
 const Contained = styled.div`
 	width: 1000px;

@@ -180,6 +180,34 @@ const LinkStyled = styled( Link )`
 		margin: 2vw 0;
 	}
 `;
+const WrapImg = styled.div`
+	width: 100%;
+	overflow: hidden;
+
+	img {
+		max-width: 100%;
+		transition-property: transform filter;
+		transition-duration: 500ms;
+		filter: brightness(0.85);
+	}
+
+	@media screen and (max-width: ${ bp.burger }) {
+		img{
+			filter: brightness(0.45);
+		}
+	}
+	@media screen and (max-width: ${ bp.phone }) {
+		padding-top: 100%;
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			max-width: initial;
+			max-height: 100%;
+		}
+	}
+`;
 const Title = styled.div`
 	position: absolute;
 	top: 17%;
@@ -207,34 +235,6 @@ const Title = styled.div`
 		font-size: 1.15rem;
 		font-weight: bold;
 		letter-spacing:1px;
-	}
-`;
-const WrapImg = styled.div`
-	width: 100%;
-	overflow: hidden;
-
-	img {
-		max-width: 100%;
-		transition-property: transform filter;
-		transition-duration: 500ms;
-		filter: brightness(0.85);
-	}
-
-	@media screen and (max-width: ${ bp.burger }) {
-		img{
-			filter: brightness(0.45);
-		}
-	}
-	@media screen and (max-width: ${ bp.phone }) {
-		padding-top: 100%;
-
-		img {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			max-width: initial;
-			max-height: 100%;
-		}
 	}
 `;
 

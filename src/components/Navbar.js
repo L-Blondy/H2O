@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
-import { Logo, MainContainer } from "./";
+import { Logo, MainContainer, Li } from "./";
 import { fontFam, clr, bp } from "../style-variables";
 import { NavbarHeightCtx } from "../Context";
 
@@ -13,27 +13,27 @@ function Navbar() {
 		<>
 			<MainContainer background={ clr.lightGradient }>
 				<Nav navbarHeight={ navbarHeight }>
-					<LogoStyled className="logo-light" />
-					<NavLinks>
+					<Logo className="logo logo-light" />
+					<ul className="navlinks">
 						<Li hideMobile={ true }>
-							<NavLinkStyled to="/">Home</NavLinkStyled>
+							<NavLink className="navlink" to="/">Home</NavLink>
 						</Li>
 						<Li hideMobile={ true }>
-							<NavLinkStyled to="/solutions">Solutions</NavLinkStyled>
+							<NavLink className="navlink" to="/solutions">Solutions</NavLink>
 						</Li>
 						<Li hideMobile={ true }>
-							<NavLinkStyled to="/case-studies">Case Studies</NavLinkStyled>
+							<NavLink className="navlink" to="/case-studies">Case Studies</NavLink>
 						</Li>
 						<Li hideMobile={ true }>
-							<NavLinkStyled to="/our-team">Our Team</NavLinkStyled>
+							<NavLink className="navlink" to="/our-team">Our Team</NavLink>
 						</Li>
 						<Li hideMobile={ true }>
-							<NavLinkStyled to="/join">Join us</NavLinkStyled>
+							<NavLink className="navlink" to="/join">Join us</NavLink>
 						</Li>
 						<Li>
-							<NavLinkStyled to="/contact">Contact</NavLinkStyled>
+							<NavLink className="navlink" to="/contact">Contact</NavLink>
 						</Li>
-					</NavLinks>
+					</ul>
 				</Nav>
 			</MainContainer>
 		</>
@@ -46,68 +46,41 @@ const Nav = styled.nav`
 	align-items:stretch;
 	width: 100%;
 	height: ${props => props.navbarHeight };
-`;
-const NavLinks = styled.ul`
-	display: flex;
-	transform: translateX(1em);
-`;
-export const Li = styled.li`
-	display: flex;
-	position: relative;
 
-	&::after,&::before {
-		content:"";
-		width: 100%;
-		height: 3px;
-		position: absolute;
-		left: 0;
-		background: ${ clr.prim };
-		transform: scaleX(0);
-		opacity: 0.7;
-		transform-origin: bottom;
-		transition: transform 150ms 30ms;
-	}
-	&::after {
-		bottom:0;
-	}
-	&::before {
-		top:0;
+	/* logo */
+	.logo {
+		display: flex;
+		align-items:center;
+		max-width: 80px;
+
+		@media screen and (max-width: ${ bp.burger }){
+			max-width: 70px;
+		}
 	}
 
-	&:hover::after,
-	&:focus::after,
-	&:hover::before,
-	&:focus::before{
-		transform: scaleX(1);
+	/* navlinks */
+	.navlinks {
+		display: flex;
+		transform: translateX(1em);
 	}
-	@media screen and (max-width: ${ bp.burger }){
-		display: ${ props => props.hideMobile ? "none" : "flex" };
-	}
-`;
-const NavLinkStyled = styled( NavLink )`
-	font-family: ${ fontFam.prim };
-	color: ${ clr.navlinks };
-	padding: 0 1em;
-	display: flex;
-	align-items: center;
 
-	&:hover,
-	&:focus {
-		color: ${clr.prim };
-	}
-	@media screen and (max-width: ${ bp.burger }){
+	/* navlink */
+	.navlink {
 		font-family: ${ fontFam.prim };
-		font-size: 1.05rem;
-		font-weight: bold;
-	}
-`;
-const LogoStyled = styled( Logo )`
-	display: flex;
-	align-items:center;
-	max-width: 80px;
+		color: ${ clr.navlinks };
+		padding: 0 1em;
+		display: flex;
+		align-items: center;
 
-	@media screen and (max-width: ${ bp.burger }){
-		max-width: 70px;
+		&:hover,
+		&:focus {
+			color: ${clr.prim };
+		}
+		@media screen and (max-width: ${ bp.burger }){
+			font-family: ${ fontFam.prim };
+			font-size: 1.05rem;
+			font-weight: bold;
+		}
 	}
 `;
 
