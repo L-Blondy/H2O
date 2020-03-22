@@ -25,7 +25,7 @@ const MC = styled.div`
 `;
 const Contained = styled.div`
 	width: 1000px;
-	max-width: 90%;
+	max-width: 85%;
 	display: flex;
 	justify-content:${ props => props.vertical === "center" ? "center" : props.vertical === "bottom" ? "flex-end" : "initial" };
 	align-items: ${ props => props.horizontal === "center" ? "center" : props.horizontal === "right" ? "flex-end" : "initial" };

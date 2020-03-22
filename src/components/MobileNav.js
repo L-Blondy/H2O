@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
-import { navigationContext } from "../Context";
 import { clr, bp, fontFam } from "../style-variables";
 import { Li as Li1 } from "./Navbar";
 import { Burger } from "./";

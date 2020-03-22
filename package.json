@@ -7,7 +7,8 @@
     "start": "parcel index.html",
     "build": "rm -rf dist && parcel build index.html --public-url https://l-blondy.github.io/H2O/",
     "deploy": "npm run build && gh-pages -d dist",
-    "analyze": "source-map-explorer dist/H2O.*"
+    "analyze": "source-map-explorer dist/H2O.*",
+    "test:eslint": "eslint src/ --ext .js --ext .jsx"
   },
   "author": "",
   "license": "ISC",
@@ -15,8 +16,12 @@
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
+    "babel-eslint": "^10.1.0",
     "babel-plugin-styled-components": "^1.10.7",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
     "gh-pages": "^2.2.0",
+    "sass": "^1.26.3",
     "source-map-explorer": "^2.4.0"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
 import { useWindowSize, useNavbarHeight } from "./hooks";
 
 export const NavbarHeightCtx = createContext();

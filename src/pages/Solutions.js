@@ -17,7 +17,7 @@ function Solutions() {
 				/>
 			</MainContainer>
 
-			<MainContainer minHeight={ minHeight } background={ clr.lightGradient }>
+			<MainContainer minHeight={ minHeight } background={ "clr.lightGradient" }>
 				<CardsStyled />
 			</MainContainer>
 		</>

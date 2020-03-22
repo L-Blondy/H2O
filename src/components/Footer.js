@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { clr, fontFam, bp } from "../style-variables";
-import { Logo, MainContainer } from "./";
+import { Logo } from "./";
 import * as iconsSRC from "../assets/icons/*.*";
 
 function Footer() {

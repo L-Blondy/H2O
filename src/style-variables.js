@@ -5,6 +5,7 @@ export const fontFam = {
 export const clr = {
 	prim: "#0C8890",
 	sec: "#434747",
+	sectionTitle: "#6F8181",
 	navlinks: "#5A6060",
 	fontLight: "#ffffff",
 	lightGradient: "linear-gradient(90deg, #ECECEC 0%, #FFFFFF 50%, #ECECEC 100%)",

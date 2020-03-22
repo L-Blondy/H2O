@@ -52,4 +52,3 @@ const BannerHeadline = styled.h3`
 `;
 
 
-;

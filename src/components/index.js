@@ -8,4 +8,6 @@ export { default as Cards } from "./Cards";
 export { default as Footer } from "./Footer";
 export { default as Parallax } from "./Parallax";
 export { default as MobileNav } from "./MobileNav";
+export { default as SectionTitle } from "./SectionTitle";
+export { default as SectionContainer } from "./SectionContainer";
 

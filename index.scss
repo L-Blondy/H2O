@@ -17,15 +17,6 @@ html {
     overflow: hidden;
 }
 
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    white-space: nowrap;
-}
-
 @media screen and (orientation:landscape) and (min-width: 1200px) {
     html::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
@@ -47,12 +38,22 @@ a {
     }
 }
 
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
 .fadeFromTop {
     opacity: 0;
     animation: fadeFromTop 500ms forwards;
 }
 
-@keyFrames fadeFromTop {
+@keyframes fadeFromTop {
     from {
         opacity: 0;
         transform: translateY(-100px)
