@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import styled from "styled-components";
-import { MainContainer, Cards } from "../components";
+import { MainContainer, Cards, Cases } from "../components";
 import { Text, SectionTitle } from "../components/styled-components";
 import { fontFam, clr, bp } from "../styles";
 import { NavbarHeightCtx, WindowSizeCtx } from "../Context";
@@ -81,6 +81,8 @@ function Home() {
 				<SectionTitle align={ windowSize.width <= bp.phone.slice( 0, 3 ) && "center" }>
 					What { windowSize.width >= bp.phone.slice( 0, 3 ) && "our" } <b>Customers Say</b>
 				</SectionTitle>
+
+				<Cases />
 
 			</MainContainer>
 		</>

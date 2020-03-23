@@ -65,8 +65,6 @@ export const SectionTitle = styled.h2`
 	}
 `;
 
-
-
 export const Text = styled.p`
 	font-family: ${ fontFam.sec };
 	color: ${ clr.sec };

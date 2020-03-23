@@ -6,4 +6,5 @@ export { default as Banner } from "./Banner";
 export { default as Cards } from "./Cards";
 export { default as Footer } from "./Footer";
 export { default as MobileNav } from "./MobileNav";
+export { default as Cases } from "./Cases";
 

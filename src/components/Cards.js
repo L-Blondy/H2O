@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import placeholder from "../assets/cards/card_placeholder_desktop.jpg";
+import placeholder from "../assets/cards/placeholder.jpg";
 import src_desktop from "../assets/cards/desktop/*.*";
 import src_mobile from "../assets/cards/mobile/*.*";
 import styled from "styled-components";
@@ -191,7 +191,7 @@ const WrapImg = styled.div`
 		max-width: 100%;
 		transition-property: transform filter;
 		transition-duration: 500ms;
-		filter: brightness(0.85);
+		filter: brightness(0.9);
 	}
 
 	@media screen and (max-width: ${ bp.phone }) {

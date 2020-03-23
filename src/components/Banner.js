@@ -29,7 +29,7 @@ const BannerContainer = styled.div`
 		letter-spacing: 0.07em;
 
 		@media screen and (max-width: ${bp.phone }){
-			font-size: 1.65rem;.
+			font-size: 1.65rem;
 		}
 	}
 
