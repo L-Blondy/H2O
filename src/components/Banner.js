@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { fontFam, clr, bp } from "../style-variables";
+import { fontFam, clr, bp } from "../styles";
 
 export default function Banner( { title, headLine } ) {
 	return (
@@ -29,7 +29,7 @@ const BannerContainer = styled.div`
 		letter-spacing: 0.07em;
 
 		@media screen and (max-width: ${bp.phone }){
-			font-size: 1.65rem;
+			font-size: 1.65rem;.
 		}
 	}
 

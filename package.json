@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel index.html --open",
     "build": "rm -rf dist && parcel build index.html --public-url https://l-blondy.github.io/H2O/",
     "deploy": "npm run build && gh-pages -d dist",
     "analyze": "source-map-explorer dist/H2O.*",
@@ -21,7 +21,6 @@
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
     "gh-pages": "^2.2.0",
-    "sass": "^1.26.3",
     "source-map-explorer": "^2.4.0"
   },
   "dependencies": {

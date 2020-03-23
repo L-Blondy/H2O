@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import styled from "styled-components";
-import { MainContainer, Text, Cards, SectionTitle } from "../components";
-import { fontFam, clr, bp } from "../style-variables";
+import { MainContainer, Cards } from "../components";
+import { Text, SectionTitle } from "../components/styled-components";
+import { fontFam, clr, bp } from "../styles";
 import { NavbarHeightCtx, WindowSizeCtx } from "../Context";
 
 function Home() {
@@ -82,7 +83,6 @@ function Home() {
 				</SectionTitle>
 
 			</MainContainer>
-
 		</>
 	);
 }
@@ -102,6 +102,7 @@ const Headers = styled.div`
 	
 	/* half--top */
 	.half--top {
+		height: calc((100vh - ${ props => props.navbarHeight }) / 2);
 		position: relative;
 		transform-style: preserve-3d;
 		z-index: -1;

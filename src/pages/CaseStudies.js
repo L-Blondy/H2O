@@ -1,6 +1,7 @@
 import React from 'react';
-import { Banner, MainContainer, Text } from "../components";
-import { clr } from "../style-variables";
+import { Banner, MainContainer } from "../components";
+import { Text } from "../components/styled-components";
+import { clr } from "../styles";
 import styled from "styled-components";
 
 function CaseStudies() {

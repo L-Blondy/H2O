@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
-import { Logo, MainContainer, Li } from "./";
-import { fontFam, clr, bp } from "../style-variables";
+import { Logo, MainContainer } from "./";
+import { Li } from "./styled-components";
+import { fontFam, clr, bp } from "../styles";
 import { NavbarHeightCtx } from "../Context";
 
 function Navbar() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { clr, bp } from "../style-variables";
+import { clr, bp } from "../styles";
 
 function Burger( props ) {
 
@@ -21,8 +21,8 @@ const curve = "";
 
 const BurgerStyled = styled.div`
 	position: fixed;
-	bottom: 1.6rem;
-	right: 0.8rem;
+	bottom: calc(1.2rem + 4vmin);
+	right: calc(0.6rem + 4vmin);
 	height: calc(4vw + 45px);
 	width: calc(4vw + 45px);
 	border-radius: 50%;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { MainContainer, Banner, Cards } from "../components";
 import styled from "styled-components";
-import { clr, bp } from "../style-variables";
+import { clr, bp } from "../styles";
 import { useMinHeight } from "../hooks";
 
 function Solutions() {

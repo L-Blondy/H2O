@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { bp } from "../style-variables";
+import { bp } from "../styles";
 
 function MainContainer( { children, className, background, minHeight, vertical, horizontal } ) {
 	return (
@@ -16,6 +16,7 @@ const MC = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	align-items:stretch;
 	background: ${props => props.background };
 	background-position: center;
 	background-size: cover;
@@ -42,9 +43,9 @@ const Contained = styled.div`
 	width: 1000px;
 	max-width: 85%;
 	display: flex;
-	justify-content:${ props => props.vertical === "center" ? "center" : props.vertical === "bottom" ? "flex-end" : "initial" };
-	align-items: ${ props => props.horizontal === "center" ? "center" : props.horizontal === "right" ? "flex-end" : "initial" };
 	flex-direction: column;
+	justify-content:${ props => props.vertical === "center" ? "center" : props.vertical === "bottom" ? "flex-end" : "initial" };;
+	align-items: ${ props => props.horizontal === "center" ? "center" : props.horizontal === "right" ? "flex-end" : "initial" };
 
 	@media screen and (max-width:${bp.tablet }) {
 		width: 700px;

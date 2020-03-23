@@ -1,6 +1,6 @@
 import React from 'react';
 import { Banner, MainContainer } from "../components";
-import { clr } from "../style-variables";
+import { clr } from "../styles";
 
 function Contact() {
 	return (

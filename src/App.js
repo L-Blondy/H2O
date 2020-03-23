@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Navbar, Footer, Parallax, MobileNav } from "./components";
+import { Navbar, Footer, MobileNav } from "./components";
+import { Parallax } from "./components/styled-components";
 import Context from "./Context";
 import * as Page from "./pages";
 

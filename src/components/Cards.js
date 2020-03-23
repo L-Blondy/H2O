@@ -1,49 +1,61 @@
-import React from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import placeholder from "../assets/cards/card_placeholder_desktop.jpg";
 import src_desktop from "../assets/cards/desktop/*.*";
+import src_mobile from "../assets/cards/mobile/*.*";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
-import { clr, fontFam, bp } from "../style-variables";
-import { useLazyImg } from "../hooks";
+import { clr, fontFam, bp } from "../styles";
+import { getLazyImg } from "../utils";
+import { WindowSizeCtx } from "../Context";
 
 function Cards( { className } ) {
+
+	const [ SRC, setSRC ] = useState( src_desktop );
+	const windowSize = useContext( WindowSizeCtx );
+
+	useEffect( () => {
+		if ( windowSize.width > bp.burger.slice( 0, 3 ) )
+			setSRC( src_desktop );
+		else
+			setSRC( src_mobile );
+	}, [ windowSize ] );
 
 	return (
 		<CardsContainer className={ className + " cards-container" } >
 			<Card
 				to="/"
-				title="Predicting ICU Transfers"
-				src={ src_desktop.predicting_icu_transfers.jpg }
+				title="ICU Transfers Prediction"
+				src={ SRC.predicting_icu_transfers.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
 				title="Medical Testing"
-				src={ src_desktop.medical_testing.jpg }
+				src={ SRC.medical_testing.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
-				title={ `Predicting ${ window.innerWidth > 700 || window.innerWidth < 576 ? "Hospital" : "" } Readmissions` }
-				src={ src_desktop.predicting_hospital_readmissions.jpg }
+				title={ `${ window.innerWidth > 700 || window.innerWidth < 576 ? "Hospital" : "" } Readmissions Prediction` }
+				src={ SRC.predicting_hospital_readmissions.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
 				title="Claim Denials Management"
-				src={ src_desktop.claim_denials_management.jpg }
+				src={ SRC.claim_denials_management.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
-				title="Improving Clinical Workflow"
-				src={ src_desktop.improving_clinical_workflow.jpg }
+				title="Clinical Workflow Improvement"
+				src={ SRC.improving_clinical_workflow.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
 				title="Sepsis Prevention"
-				src={ src_desktop.sepsis_prevention.jpg }
+				src={ SRC.sepsis_prevention.jpg }
 				placeholder={ placeholder }
 			/>
 		</CardsContainer>
@@ -52,12 +64,16 @@ function Cards( { className } ) {
 
 function Card( { to, title, src, placeholder } ) {
 
-	const ref = useLazyImg( src, placeholder );
+	const img = useRef();
+
+	useEffect( () => {
+		getLazyImg( img, src, placeholder );
+	}, [ src ] );
 
 	return (
 		<LinkStyled to={ to }>
 			<WrapImg>
-				<img { ...ref } />
+				<img ref={ img } />
 			</WrapImg>
 			<Title className="title">{ title }</Title>
 			<div className="hover">
@@ -148,19 +164,6 @@ const LinkStyled = styled( Link )`
 		}
 	}
 
-	@media screen and (max-width: ${ bp.burger }) {
-		&:hover,
-		&:focus {
-			img {
-				transform: scale(1.1);
-				filter: brightness(0.8);
-			}
-			.title {
-				text-decoration: underline;
-			}
-		}
-	}
-
 	@media screen and (max-width: ${ bp.tablet }) {
 		width: 48%;
 	}
@@ -176,7 +179,7 @@ const LinkStyled = styled( Link )`
 			}
 		}
 	}
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 540px) {
 		margin: 2vw 0;
 	}
 `;
@@ -191,11 +194,6 @@ const WrapImg = styled.div`
 		filter: brightness(0.85);
 	}
 
-	@media screen and (max-width: ${ bp.burger }) {
-		img{
-			filter: brightness(0.45);
-		}
-	}
 	@media screen and (max-width: ${ bp.phone }) {
 		padding-top: 100%;
 
@@ -232,9 +230,10 @@ const Title = styled.div`
 		font-size: calc(1vw + 1rem);
 	}
 	@media screen and (max-width: ${ bp.phone }) {
-		font-size: 1.15rem;
+		font-size: 1.1rem;
+		width: 100%;
 		font-weight: bold;
-		letter-spacing:1px;
+		letter-spacing: 1px;
 	}
 `;
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
-import { clr, bp, fontFam } from "../style-variables";
-import { Li } from "./";
+import { clr, bp, fontFam } from "../styles";
+import { Li } from "./styled-components";
 import { Burger } from "./";
 
 function MobileNav() {
@@ -94,7 +94,7 @@ const Nav = styled.nav`
 	align-items:center;
 	justify-content:center;
 	font-weight: bold;
-	transform: ${ props => props.isNavOpen ? "translateY(0)" : "translateY(-102%)" };
+	transform: ${ props => props.isNavOpen ? "translateY(0)" : "translateY(-115%)" };
 	transition: transform 300ms;
 
 	/* navlink */
@@ -113,7 +113,7 @@ const Nav = styled.nav`
 `;
 const LiAnimated = styled( Li )`
 	animation-duration: 700ms;
-	animation-delay: ${props => props.num * 50 }ms;
+	// animation-delay: ${props => props.num * 50 }ms;
 	padding: 2vw;
 `;
 
