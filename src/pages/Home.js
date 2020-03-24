@@ -1,26 +1,26 @@
 import React, { useContext, useState, useEffect } from 'react';
 import styled from "styled-components";
-import { MainContainer, Cards, Cases } from "../components";
+import { MainContainer, Cards, Cases, LearnMore } from "../components";
 import { Text, SectionTitle } from "../components/styled-components";
 import { fontFam, clr, bp } from "../styles";
 import { NavbarHeightCtx, WindowSizeCtx } from "../Context";
 
 function Home() {
 
-	const navbarHeight = useContext( NavbarHeightCtx );
-	const windowSize = useContext( WindowSizeCtx );
+	const navbarHeight = useContext(NavbarHeightCtx);
+	const windowSize = useContext(WindowSizeCtx);
 	const [ halfTop_bg, setHalfTop_bg ] = useState();
 
-	useEffect( () => {
+	useEffect(() => {
 		const width = windowSize.width;
-		width < 400 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x400w.jpg" ) ) :
-			width < 500 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x500w.jpg" ) ) :
-				width < 800 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x800w.jpg" ) ) :
-					width < 1100 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x1100w.jpg" ) ) :
-						width < 1600 ? setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg_x1600w.jpg" ) ) :
-							setHalfTop_bg( require( "../assets/home-header-bg/home-header-bg.jpg" ) );
+		width < 400 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x400w.jpg")) :
+			width < 500 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x500w.jpg")) :
+				width < 800 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x800w.jpg")) :
+					width < 1100 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x1100w.jpg")) :
+						width < 1600 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x1600w.jpg")) :
+							setHalfTop_bg(require("../assets/home-header-bg/home-header-bg.jpg"));
 
-	}, [ windowSize ] );
+	}, [ windowSize ]);
 
 	return (
 		<>
@@ -46,7 +46,7 @@ function Home() {
 
 					<h2>
 						Use prediction models { windowSize.width <= 400 && <br /> }
-						to { ( windowSize.width <= 768 && windowSize.width >= 400 ) && <br /> }
+						to { (windowSize.width <= 768 && windowSize.width >= 400) && <br /> }
 						improve { windowSize.width <= 400 && <br /> }
 						clinical workflow
 					</h2>
@@ -78,12 +78,21 @@ function Home() {
 				className="section-container"
 				background={ clr.lightGradient }>
 
-				<SectionTitle align={ windowSize.width <= bp.phone.slice( 0, 3 ) && "center" }>
-					What { windowSize.width >= bp.phone.slice( 0, 3 ) && "our" } <b>Customers Say</b>
+				<SectionTitle align={ windowSize.width <= bp.phone.slice(0, 3) && "center" }>
+					What { windowSize.width >= bp.phone.slice(0, 3) && "our" } <b>Customers Say</b>
 				</SectionTitle>
 
 				<Cases />
 
+			</MainContainer>
+
+			<MainContainer
+				className="section-container"
+				background={ clr.lightGradient }>
+				<div className="test-container">
+
+					<LearnMore />
+				</div>
 			</MainContainer>
 		</>
 	);

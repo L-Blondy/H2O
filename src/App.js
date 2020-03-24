@@ -11,7 +11,7 @@ function App() {
 			<Context>
 				<MobileNav />
 
-				<Parallax>
+				<Parallax className="parallax">
 					<Navbar />
 
 					<Switch>

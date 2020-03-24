@@ -7,4 +7,5 @@ export { default as Cards } from "./Cards";
 export { default as Footer } from "./Footer";
 export { default as MobileNav } from "./MobileNav";
 export { default as Cases } from "./Cases";
+export { default as LearnMore } from "./LearnMore";
 

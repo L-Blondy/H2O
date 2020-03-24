@@ -8,17 +8,17 @@ import { clr, fontFam, bp } from "../styles";
 import { useLazyImg } from "../hooks";
 import { WindowSizeCtx } from "../Context";
 
-function Cards( { className } ) {
+function Cards({ className }) {
 
-	const [ SRC, setSRC ] = useState( src_desktop );
-	const windowSize = useContext( WindowSizeCtx );
+	const [ SRC, setSRC ] = useState(src_desktop);
+	const windowSize = useContext(WindowSizeCtx);
 
-	useEffect( () => {
-		if ( windowSize.width > bp.burger.slice( 0, 3 ) )
-			setSRC( src_desktop );
+	useEffect(() => {
+		if (windowSize.width > bp.burger.slice(0, 3))
+			setSRC(src_desktop);
 		else
-			setSRC( src_mobile );
-	}, [ windowSize ] );
+			setSRC(src_mobile);
+	}, [ windowSize ]);
 
 	return (
 		<CardsContainer className={ className + " cards-container" } >
@@ -62,9 +62,9 @@ function Cards( { className } ) {
 	);
 }
 
-function Card( { to, title, src, placeholder } ) {
+function Card({ to, title, src, placeholder }) {
 
-	const img = useLazyImg( src, placeholder );
+	const img = useLazyImg(src, placeholder);
 
 	return (
 		<LinkStyled to={ to }>
@@ -87,7 +87,7 @@ const CardsContainer = styled.div`
 	align-content: flex-start;
 	flex-wrap: wrap;
 `;
-const LinkStyled = styled( Link )`
+const LinkStyled = styled(Link)`
 	position: relative;
 	display: inline-block;
 	font-size: 0;

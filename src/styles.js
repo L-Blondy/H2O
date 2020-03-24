@@ -39,6 +39,10 @@ export const GlobalStyle = createGlobalStyle`
 		overflow: hidden;
 	}
 
+	button:hover {
+		cursor: pointer;
+	}
+
 	li {
 		list-style: none;
 	}

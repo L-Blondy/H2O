@@ -1,5 +1,5 @@
 
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Text } from "../components/styled-components";
 import { clr, fontFam, bp } from "../styles";
@@ -8,21 +8,20 @@ import * as src_tablet from "../assets/cases/tablet/*.*";
 import * as src_phone from "../assets/cases/phone/*.*";
 import { WindowSizeCtx } from "../Context";
 import { useLazyImg } from "../hooks";
-// import { getLazyImg } from "../utils";
 
 export default function Cases() {
 
-	const windowSize = useContext( WindowSizeCtx );
-	const [ SRC, setSRC ] = useState( src_desktop );
+	const windowSize = useContext(WindowSizeCtx);
+	const [ SRC, setSRC ] = useState(src_desktop);
 
-	useEffect( () => {
-		if ( windowSize.width < bp.phone.slice( 0, 3 ) )
-			setSRC( src_phone );
-		else if ( windowSize.width < bp.tablet.slice( 0, 4 ) )
-			setSRC( src_tablet );
+	useEffect(() => {
+		if (windowSize.width < bp.phone.slice(0, 3))
+			setSRC(src_phone);
+		else if (windowSize.width < bp.tablet.slice(0, 4))
+			setSRC(src_tablet);
 		else
-			setSRC( src_desktop );
-	}, [ windowSize ] );
+			setSRC(src_desktop);
+	}, [ windowSize ]);
 
 	return (
 		<>
@@ -32,6 +31,7 @@ export default function Cases() {
 				name={ CEO1.name }
 				job={ CEO1.job }
 				quote={ CEO1.quote }
+				first
 			/>
 			<Case
 				src={ SRC.CEO2.jpg }
@@ -55,19 +55,20 @@ export default function Cases() {
 				job={ CEO4.job }
 				quote={ CEO4.quote }
 				reverse
+				last
 			/>
 		</>
 	);
 }
 
 
-function Case( { src, placeholder, reverse, name, job, quote } ) {
+function Case({ src, placeholder, reverse, name, job, quote, first, last }) {
 
-	const windowSize = useContext( WindowSizeCtx );
-	const img = useLazyImg( src, placeholder );
+	const windowSize = useContext(WindowSizeCtx);
+	const img = useLazyImg(src, placeholder);
 
 	return (
-		<CaseStyled reverse={ reverse }>
+		<CaseStyled reverse={ reverse } first={ first } last={ last }>
 
 			<div className="picture">
 				<img className="img" ref={ img } alt="image" />
@@ -81,14 +82,14 @@ function Case( { src, placeholder, reverse, name, job, quote } ) {
 				<div className="job">
 					{ job }
 				</div>
-				{ windowSize.width >= bp.burger.slice( 0, 3 ) && (
+				{ windowSize.width >= bp.burger.slice(0, 3) && (
 					<Text className="quote">
 						<i>{ quote }</i>
 					</Text>
 				) }
 
 			</div>
-			{ windowSize.width < bp.burger.slice( 0, 3 ) && (
+			{ windowSize.width < bp.burger.slice(0, 3) && (
 				<Text className="quote">
 					<i>{ quote }</i>
 				</Text>
@@ -104,6 +105,21 @@ const CaseStyled = styled.div`
 	flex-wrap: wrap;
 	width: 100%;
 	text-align: ${props => props.reverse ? "right" : "left" };
+	padding-top: ${props => props.first ? "0.5rem" : "3.5rem" };
+	padding-bottom: ${props => props.last ? "0.5rem" : "3.5rem" };
+
+	@media screen and (max-width: ${ bp.tablet }) {
+		padding-top: ${props => props.first ? "0.5rem" : "3rem" };
+		padding-bottom: ${props => props.last ? "0.5rem" : "3rem" };
+	}
+	@media screen and (max-width: ${ bp.burger }) {
+		padding-top: ${props => props.first ? "0.5rem" : "2.5rem" };
+		padding-bottom: ${props => props.last ? "0.5rem" : "2.5rem" };
+	}
+	@media screen and (max-width: ${ bp.phone }) {
+		padding-top: ${props => props.first ? "0.5rem" : "2rem" };
+		padding-bottom: ${props => props.last ? "0.5rem" : "2rem" };
+	}
 
 	.picture { 
 		font-size: 0;
@@ -135,10 +151,10 @@ const CaseStyled = styled.div`
 		color: ${ clr.navlinks };
 
 		@media screen and (max-width: ${ bp.tablet }){
-			${props => props.reverse ? "padding-right" : "padding-left" }: 2.5rem;
+			${ props => props.reverse ? "padding-right" : "padding-left" }: 2.5rem;
 		}
 		@media screen and (max-width: ${ bp.phone }){
-			${props => props.reverse ? "padding-right" : "padding-left" }: 1.5rem;
+			${ props => props.reverse ? "padding-right" : "padding-left" }: 1.5rem;
 		}
 		
 	}
@@ -157,18 +173,20 @@ const CaseStyled = styled.div`
 		padding-bottom: 0.2em;
 		white-space: nowrap;
 
+		@media screen and (max-width: ${ bp.burger }) {
+			white-space: pre-wrap;
+		}
 		@media screen and (max-width: ${ bp.phone }) {
 			font-size: 1em;
-			/* font-weight: normal; */
 			opacity: 0.9;
-			white-space: pre-wrap;
 		} 
 	}
 	.quote {
 		@media screen and (max-width: ${ bp.burger }) {
-			padding-top: 0.5rem;
+			padding-top: 1rem;
 		} 
 		@media screen and (max-width: ${ bp.phone }) {
+			padding-top: 0.7rem;
 			font-size: 16px;
 		} 
 	}

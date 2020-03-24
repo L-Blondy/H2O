@@ -1,7 +1,28 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { fontFam, clr, bp } from "../styles";
 
+const Btn = styled(Link)`
+	font-size: 1.175rem;
+	font-family: ${ fontFam.sec };
+	border-radius: 3px;
+	border: currentColor solid 2px;
+	padding: 0.55em 1.3em;
+	letter-spacing: 0.02em;
+	text-align: center;
+`;
 
+export const BtnContained = styled(Btn)`
+	border-color: ${ props => props.color };;
+	color: ${ clr.fontLight };
+	background: ${ props => props.color };
+`;
+
+export const BtnOutlined = styled(Btn)`
+	color: ${props => props.color };
+	background: none;
+	font-weight: 600;
+`;
 
 export const Li = styled.li`
 	display: flex;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Banner, MainContainer } from "../components";
+import { Banner, MainContainer, LearnMore } from "../components";
 import { clr } from "../styles";
 
 function Contact() {
@@ -10,6 +10,12 @@ function Contact() {
 					title="Contact us"
 					headLine="Share your case with us !"
 				/>
+			</MainContainer>
+
+			<MainContainer className="section-container" background={ clr.lightGradient }>
+
+				<LearnMore />
+
 			</MainContainer>
 		</>
 	);

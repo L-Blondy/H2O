@@ -21,7 +21,6 @@ const MC = styled.div`
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	transform: translateZ(0);
 	min-height: ${ props => props.minHeight }px;
 
 	/* section-container */

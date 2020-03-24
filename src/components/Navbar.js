@@ -79,7 +79,7 @@ const Nav = styled.nav`
 		}
 		@media screen and (max-width: ${ bp.burger }){
 			font-family: ${ fontFam.prim };
-			font-size: 1.05rem;
+			font-size: 18px;
 			font-weight: bold;
 		}
 	}

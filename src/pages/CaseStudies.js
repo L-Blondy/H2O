@@ -2,9 +2,9 @@ import React from 'react';
 import { Banner, MainContainer } from "../components";
 import { Cases } from "../components";
 import { clr } from "../styles";
-import styled from "styled-components";
 
 function CaseStudies() {
+
 	return (
 		<>
 			<MainContainer background={ clr.bannerGradient }>
@@ -14,7 +14,7 @@ function CaseStudies() {
 				/>
 			</MainContainer>
 
-			<MainContainer background={ "clr.lightGradient" }>
+			<MainContainer className="section-container" background={ "clr.lightGradient" }>
 				<Cases />
 			</MainContainer>
 		</>

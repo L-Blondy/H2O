@@ -6,16 +6,16 @@ import { Li } from "./styled-components";
 import { Burger } from "./";
 
 function MobileNav() {
-	const [ isNavOpen, setIsNavOpen ] = useState( false );
-	const [ roll, setRoll ] = useState( false );
+	const [ isNavOpen, setIsNavOpen ] = useState(false);
+	const [ roll, setRoll ] = useState(false);
 
 	const handleLinkClick = () => {
-		setRoll( false );
-		setTimeout( () => setRoll( true ), 17 );
-		setTimeout( () => setIsNavOpen( false ), 500 );
+		setRoll(false);
+		setTimeout(() => setRoll(true), 17);
+		setTimeout(() => setIsNavOpen(false), 500);
 	};
 	const handleBurgerClick = () => {
-		setIsNavOpen( !isNavOpen );
+		setIsNavOpen(!isNavOpen);
 	};
 
 	return (
@@ -70,7 +70,7 @@ function MobileNav() {
 					</NavLink>
 				</LiAnimated>
 			</Nav>
-			<Burger className={ ( isNavOpen ? "open " : "close " ) + ( roll && " roll" ) } onClick={ handleBurgerClick } />
+			<Burger className={ (isNavOpen ? "open " : "close ") + (roll && " roll") } onClick={ handleBurgerClick } />
 		</>
 	);
 }
@@ -87,7 +87,7 @@ const Nav = styled.nav`
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background: radial-gradient( 50% 50% at 50% 50%, #595E5E 0%, #434747 100% );
+	background: radial-gradient(50% 50% at 50% 50%,#3d4f4f 0%,#334646 100%);
 	z-index: 1;
 	display: flex;
 	flex-direction: column;
@@ -111,9 +111,8 @@ const Nav = styled.nav`
 		}
 	}
 `;
-const LiAnimated = styled( Li )`
+const LiAnimated = styled(Li)`
 	animation-duration: 700ms;
-	// animation-delay: ${props => props.num * 50 }ms;
 	padding: 2vw;
 `;
 

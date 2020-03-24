@@ -1,23 +1,7 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useContext } from 'react';
+import { ObsCtx } from "../Context";
 
-let observer;
-if ( "IntersectionObserver" in window )
-	observer = new IntersectionObserver( loadImg, { threshold: 0.01, rootMargin: "0px 0px 300px 0px" } );
-
-function loadImg( entries ) {
-	entries.forEach( e => {
-		if ( e.intersectionRatio > 0 ) {
-			const temp = document.createElement( "IMG" );
-			temp.src = e.target.dataset.src;
-			temp.onload = () => {
-				e.target.src = temp.src;
-			};
-			observer.unobserve( e.target );
-		}
-	} );
-}
-
-function getLazyImg( img, src, placeholder ) {
+function getLazyImg( img, src, placeholder, observer ) {
 
 	placeholder && ( img.current.src = placeholder );
 	img.current.dataset.src = src;
@@ -30,8 +14,10 @@ function getLazyImg( img, src, placeholder ) {
 
 function useLazyImg( src, placeholder ) {
 	const img = useRef();
+	const observer = useContext( ObsCtx );
+
 	useEffect( () => {
-		getLazyImg( img, src, placeholder );
+		getLazyImg( img, src, placeholder, observer );
 	}, [ src ] );
 
 	return img;

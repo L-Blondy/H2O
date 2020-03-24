@@ -6,7 +6,7 @@ import { useMinHeight } from "../hooks";
 
 function Solutions() {
 
-	const minHeight = useMinHeight( ".cards-container" );
+	const minHeight = useMinHeight(".cards-container");
 
 	return (
 		<>
@@ -26,7 +26,7 @@ function Solutions() {
 
 export default Solutions;
 
-const CardsStyled = styled( Cards )`
+const CardsStyled = styled(Cards)`
 	padding-top: 4rem;
 	padding-bottom: 4rem;
 
