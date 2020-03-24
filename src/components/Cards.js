@@ -5,7 +5,7 @@ import src_mobile from "../assets/cards/mobile/*.*";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { clr, fontFam, bp } from "../styles";
-import { getLazyImg } from "../utils";
+import { useLazyImg } from "../hooks";
 import { WindowSizeCtx } from "../Context";
 
 function Cards( { className } ) {
@@ -64,11 +64,7 @@ function Cards( { className } ) {
 
 function Card( { to, title, src, placeholder } ) {
 
-	const img = useRef();
-
-	useEffect( () => {
-		getLazyImg( img, src, placeholder );
-	}, [ src ] );
+	const img = useLazyImg( src, placeholder );
 
 	return (
 		<LinkStyled to={ to }>

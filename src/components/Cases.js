@@ -5,8 +5,10 @@ import { Text } from "../components/styled-components";
 import { clr, fontFam, bp } from "../styles";
 import * as src_desktop from "../assets/cases/desktop/*.*";
 import * as src_tablet from "../assets/cases/tablet/*.*";
+import * as src_phone from "../assets/cases/phone/*.*";
 import { WindowSizeCtx } from "../Context";
-import { getLazyImg } from "../utils";
+import { useLazyImg } from "../hooks";
+// import { getLazyImg } from "../utils";
 
 export default function Cases() {
 
@@ -14,7 +16,9 @@ export default function Cases() {
 	const [ SRC, setSRC ] = useState( src_desktop );
 
 	useEffect( () => {
-		if ( windowSize < bp.tablet.slice( 0, 4 ) )
+		if ( windowSize.width < bp.phone.slice( 0, 3 ) )
+			setSRC( src_phone );
+		else if ( windowSize.width < bp.tablet.slice( 0, 4 ) )
 			setSRC( src_tablet );
 		else
 			setSRC( src_desktop );
@@ -59,11 +63,8 @@ export default function Cases() {
 
 function Case( { src, placeholder, reverse, name, job, quote } ) {
 
-	const img = useRef();
-
-	useEffect( () => {
-		getLazyImg( img, src, placeholder );
-	}, [ src ] );
+	const windowSize = useContext( WindowSizeCtx );
+	const img = useLazyImg( src, placeholder );
 
 	return (
 		<CaseStyled reverse={ reverse }>
@@ -80,11 +81,18 @@ function Case( { src, placeholder, reverse, name, job, quote } ) {
 				<div className="job">
 					{ job }
 				</div>
+				{ windowSize.width >= bp.burger.slice( 0, 3 ) && (
+					<Text className="quote">
+						<i>{ quote }</i>
+					</Text>
+				) }
 
-				<Text className="quote">
-					{ quote }
-				</Text>
 			</div>
+			{ windowSize.width < bp.burger.slice( 0, 3 ) && (
+				<Text className="quote">
+					<i>{ quote }</i>
+				</Text>
+			) }
 
 		</CaseStyled>
 	);
@@ -93,26 +101,30 @@ function Case( { src, placeholder, reverse, name, job, quote } ) {
 const CaseStyled = styled.div`
 	display: flex;
 	flex-direction: ${props => props.reverse ? "row-reverse" : "row" };
+	flex-wrap: wrap;
 	width: 100%;
 	text-align: ${props => props.reverse ? "right" : "left" };
 
 	.picture { 
 		font-size: 0;
-		display: flex;
-		justify-content: center;
 		overflow: hidden;
 
 		@media screen and (max-width: ${ bp.tablet }) {
-			width: 260px;
-			height: 260px;
-		}
+			max-width: 40%;
+			border-radius: 3px;
+		} 
+		@media screen and (max-width: ${ bp.burger }) {
+			max-width: initial;
+			width: 200px;
+		} 
+		@media screen and (max-width: ${ bp.phone }) {
+			width: auto;
+		} 
 	}
 	.img{ 
-		/* width: 100%; */
-		/* height: 100%; */
+		width: 100%;
 	}
 	.presentation {
-		background: lime;
 		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
@@ -121,38 +133,65 @@ const CaseStyled = styled.div`
 		${props => props.reverse ? "padding-right" : "padding-left" }: 4rem;
 		font-family: ${ fontFam.prim };
 		color: ${ clr.navlinks };
+
+		@media screen and (max-width: ${ bp.tablet }){
+			${props => props.reverse ? "padding-right" : "padding-left" }: 2.5rem;
+		}
+		@media screen and (max-width: ${ bp.phone }){
+			${props => props.reverse ? "padding-right" : "padding-left" }: 1.5rem;
+		}
 		
 	}
 	.name {
 		font-weight: bold;
 		font-size: 1.48em;
+
+		@media screen and (max-width: ${ bp.phone }) {
+			font-size: 1.1em;
+		} 
 	}
 	.job {
 		margin-top: -0.1em;
 		font-weight: bold;
 		font-size: 1.12em;
 		padding-bottom: 0.2em;
+		white-space: nowrap;
+
+		@media screen and (max-width: ${ bp.phone }) {
+			font-size: 1em;
+			/* font-weight: normal; */
+			opacity: 0.9;
+			white-space: pre-wrap;
+		} 
+	}
+	.quote {
+		@media screen and (max-width: ${ bp.burger }) {
+			padding-top: 0.5rem;
+		} 
+		@media screen and (max-width: ${ bp.phone }) {
+			font-size: 16px;
+		} 
 	}
 `;
 
 
 const CEO1 = {
 	name: "Richard Young",
-	job: "Director, RedDoor Health",
+	job: "Director,\nRedDoor Health",
 	quote: `"H2O has been the driver for building models at scale. We are talking about billions of claims. You can't do this with standard off the shelf open source techniques."`
 };
 const CEO2 = {
 	name: "Mark Coleman",
-	job: "Health Data Project Lead",
+	job: "Project Lead,\nHealth Data",
 	quote: `"The power of making decisions with machine learning is great and AutoML is a great tool for the rapid knowledge discovery. We can make decisions right away and it can be personalized decisions."`
 };
 const CEO3 = {
 	name: "Jason Sullivan",
-	job: "CEO, HandCare",
+	job: "CEO,\nHandCare",
 	quote: `"With H2O we are building models to improve the patient experience in our hospitals and improve the nursing and doctor workflows as well."`
 };
 const CEO4 = {
 	name: "Douglas McKinney ",
-	job: "Data scientist, Change Healthcare",
+	job: "Data scientist,\nChange Healthcare",
 	quote: `"In terms of time savings, it’s a standard practice for our team to use H2O for things like model evaluation, evaluating variable importances, and interpretability of the model. H2O just makes so much of that legwork so easy in our workflow."`
 };

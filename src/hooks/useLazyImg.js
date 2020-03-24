@@ -17,20 +17,24 @@ function loadImg( entries ) {
 	} );
 }
 
+function getLazyImg( img, src, placeholder ) {
+
+	placeholder && ( img.current.src = placeholder );
+	img.current.dataset.src = src;
+
+	if ( "IntersectionObserver" in window )
+		observer.observe( img.current );
+	else
+		img.current.src = src;
+}
+
 function useLazyImg( src, placeholder ) {
 	const img = useRef();
-
 	useEffect( () => {
-		placeholder && ( img.current.src = placeholder );
-		img.current.dataset.src = src;
+		getLazyImg( img, src, placeholder );
+	}, [ src ] );
 
-		if ( "IntersectionObserver" in window )
-			observer.observe( img.current );
-		else
-			img.current.src = src;
-	}, [] );
-
-	return { ref: img };
+	return img;
 }
 
 export default useLazyImg;
