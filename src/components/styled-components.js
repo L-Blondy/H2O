@@ -11,6 +11,14 @@ const Btn = styled(Link)`
 	padding: 0.4em 1.1em;
 	letter-spacing: 0.02em;
 	text-align: center;
+
+	&:hover,
+	&:focus {
+		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+			opacity: 0.8;
+		}
+		filter: brightness(1.2);
+	}
 `;
 
 export const BtnContained = styled(Btn)`
