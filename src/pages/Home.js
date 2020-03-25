@@ -87,12 +87,10 @@ function Home() {
 			</MainContainer>
 
 			<MainContainer
-				className="section-container"
-				background={ clr.lightGradient }>
-				<div className="test-container">
+				className="section-container" >
 
-					<LearnMore />
-				</div>
+
+				<LearnMore />
 			</MainContainer>
 		</>
 	);
@@ -136,11 +134,18 @@ const Headers = styled.div`
 			left: 50%;
 			height: 120%;
 			width: 100%;
-			transform: translateX(-50%) translateY(-90%)  translateZ(-1px) scale(2.05);
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
 			z-index: -100;
+
+			@media screen and (min-width:1200px) and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+				transform: translateX(-50%) translateY(-90%)  translateZ(-1px) scale(2.05);
+			}
+			@-moz-document url-prefix() { 
+				transform: translateX(-50%) translateY(-50%);
+			}
+			transform: translateX(-50%) translateY(-50%);
 		}
 	}
 

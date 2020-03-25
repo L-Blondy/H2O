@@ -3,14 +3,17 @@ import { ObsCtx } from "../Context";
 
 function getLazyImg(img, src, placeholder, observer) {
 
-	if (!observer) return;
+	if ("IntersectionObserver" in window && !observer)
+		return;
+
 	placeholder && (img.current.src = placeholder);
 	img.current.dataset.src = src;
 
 	if ("IntersectionObserver" in window)
 		observer.observe(img.current);
-	else
+	else {
 		img.current.src = src;
+	}
 }
 
 function useLazyImg(src, placeholder) {

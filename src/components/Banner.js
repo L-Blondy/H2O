@@ -2,16 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import { fontFam, clr, bp } from "../styles";
 
-export default function Banner( { title, headLine } ) {
+export default function Banner({ title, headLine, Btn }) {
 	return (
 		<BannerContainer>
-			<h1>{ title }</h1>
-			<h3>{ headLine }</h3>
+			<div>
+				<h1>{ title }</h1>
+				<h3>{ headLine }</h3>
+			</div>
+			{ Btn && <Btn /> }
 		</BannerContainer>
 	);
 }
 
 const BannerContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	padding-top: 3em;
 	padding-bottom: 3em;
 

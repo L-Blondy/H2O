@@ -10,12 +10,11 @@ function Parallax({ className, children }) {
 	useEffect(() => {
 		const obs = setupLazyObs(self.current);
 		setObserver(obs);
-	}, []);
+	}, [ self ]);
 
 	return (
 		<div
 			className={ className }
-			style={ style }
 			ref={ self } >
 
 			{ children }
@@ -25,9 +24,3 @@ function Parallax({ className, children }) {
 
 export default Parallax;
 
-const style = {
-	"height": "100vh",
-	"overflowX": "hidden",
-	"overflowY": "auto",
-	"perspective": "1px",
-};

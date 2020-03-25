@@ -14,12 +14,14 @@ function CaseStudies() {
 				/>
 			</MainContainer>
 
-			<MainContainer className="section-container" background={ "clr.lightGradient" }>
+			<MainContainer
+				className="stand-alone"
+				background={ "clr.lightGradient" }>
+
 				<Cases />
 			</MainContainer>
 		</>
 	);
 }
-
 
 export default CaseStudies;

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html --open",
+    "start": "parcel index.html",
     "build": "rm -rf dist && parcel build index.html --public-url https://l-blondy.github.io/H2O/",
     "deploy": "npm run build && gh-pages -d dist",
     "analyze": "source-map-explorer dist/H2O.*",

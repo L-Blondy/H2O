@@ -29,7 +29,10 @@ const MC = styled.div`
 	background-size: cover;
 	background-repeat: no-repeat;
 	min-height: ${ props => props.minHeight }px;
-	transform: translateZ(0);
+
+	@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+		transform: translateZ(0);
+	}
 
 	/* section-container */
 	&.section-container {
@@ -43,6 +46,19 @@ const MC = styled.div`
 		@media screen and (max-width: ${bp.phone }){
 			padding-top: 4rem;
 			padding-bottom: 4rem;
+		}
+	}
+	&.stand-alone {
+		padding-top: 8rem;
+		padding-bottom: 12rem;
+
+		@media screen and (max-width: ${bp.burger }){
+			padding-top: 6rem;
+			padding-bottom: 19rem;
+		}
+		@media screen and (max-width: ${bp.phone }){
+			padding-top: 4rem;
+			padding-bottom: 6rem;
 		}
 	}
 `;

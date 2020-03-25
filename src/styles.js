@@ -7,10 +7,12 @@ export const fontFam = {
 export const clr = {
 	prim: "#0C8890",
 	sec: "#434747",
+	primDark: "#005A5A",
 	sectionTitle: "#6F8181",
 	navlinks: "#5A6060",
+	bigSize: "#6a7b7b",
 	fontLight: "#ffffff",
-	lightGradient: "linear-gradient(90deg, #ECECEC 0%, #FFFFFF 50%, #ECECEC 100%)",
+	lightGradient: "linear-gradient(90deg, #f0f0f0 0%, #fefefe 50%, #f0f0f0 100%)",
 	bannerGradient: "linear-gradient(90deg, #0B757C 0%, #0C8891 51.04%, #0B757C 100%)"
 };
 export const bp = {
@@ -56,6 +58,19 @@ export const GlobalStyle = createGlobalStyle`
 		color: ${ clr.prim };
 	}
 
+	.parallax {
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		@media screen  and (min-width:1200px) and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+			perspective: 1px;
+		}
+		@-moz-document url-prefix() { 
+			perspective: 1px;
+		}
+	}
+		
 	.fadeFromTop {
 		opacity: 0;
 		animation: fadeFromTop 500ms forwards;

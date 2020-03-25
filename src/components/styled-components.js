@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { fontFam, clr, bp } from "../styles";
 
 const Btn = styled(Link)`
-	font-size: 1.175rem;
+	display: inline-block;
+	font-size: 1.175em;
 	font-family: ${ fontFam.sec };
 	border-radius: 3px;
 	border: currentColor solid 2px;
-	padding: 0.55em 1.3em;
+	padding: 0.4em 1.1em;
 	letter-spacing: 0.02em;
 	text-align: center;
 `;
