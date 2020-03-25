@@ -1,24 +1,25 @@
 import { useRef, useEffect, useContext } from 'react';
 import { ObsCtx } from "../Context";
 
-function getLazyImg( img, src, placeholder, observer ) {
+function getLazyImg(img, src, placeholder, observer) {
 
-	placeholder && ( img.current.src = placeholder );
+	if (!observer) return;
+	placeholder && (img.current.src = placeholder);
 	img.current.dataset.src = src;
 
-	if ( "IntersectionObserver" in window )
-		observer.observe( img.current );
+	if ("IntersectionObserver" in window)
+		observer.observe(img.current);
 	else
 		img.current.src = src;
 }
 
-function useLazyImg( src, placeholder ) {
+function useLazyImg(src, placeholder) {
 	const img = useRef();
-	const observer = useContext( ObsCtx );
+	const [ observer ] = useContext(ObsCtx);
 
-	useEffect( () => {
-		getLazyImg( img, src, placeholder, observer );
-	}, [ src ] );
+	useEffect(() => {
+		getLazyImg(img, src, placeholder, observer);
+	}, [ src ]);
 
 	return img;
 }

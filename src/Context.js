@@ -1,21 +1,20 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import { useWindowSize, useNavbarHeight } from "./hooks";
-import { getLazyObs } from "./utils";
 
 export const NavbarHeightCtx = createContext();
 export const WindowSizeCtx = createContext();
 export const ObsCtx = createContext();
 
 
-export default function Context( { children } ) {
-	const observer = getLazyObs( document.querySelector( ".parallax" ) );
+export default function Context({ children }) {
 	const windowSize = useWindowSize();
-	const navbarHeight = useNavbarHeight( windowSize );
+	const navbarHeight = useNavbarHeight(windowSize);
+	const [ observer, setObserver ] = useState();
 
 	return (
 		<WindowSizeCtx.Provider value={ windowSize }>
 			<NavbarHeightCtx.Provider value={ navbarHeight }>
-				<ObsCtx.Provider value={ observer }>
+				<ObsCtx.Provider value={ [ observer, setObserver ] }>
 					{ children }
 				</ObsCtx.Provider>
 			</NavbarHeightCtx.Provider>

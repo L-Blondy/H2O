@@ -10,8 +10,8 @@ import { WindowSizeCtx } from "../Context";
 
 function Cards({ className }) {
 
-	const [ SRC, setSRC ] = useState(src_desktop);
 	const windowSize = useContext(WindowSizeCtx);
+	const [ SRC, setSRC ] = useState();
 
 	useEffect(() => {
 		if (windowSize.width > bp.burger.slice(0, 3))
@@ -25,37 +25,37 @@ function Cards({ className }) {
 			<Card
 				to="/"
 				title="ICU Transfers Prediction"
-				src={ SRC.predicting_icu_transfers.jpg }
+				src={ SRC && SRC.predicting_icu_transfers.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
 				title="Medical Testing"
-				src={ SRC.medical_testing.jpg }
+				src={ SRC && SRC.medical_testing.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
 				title={ `${ window.innerWidth > 700 || window.innerWidth < 576 ? "Hospital" : "" } Readmissions Prediction` }
-				src={ SRC.predicting_hospital_readmissions.jpg }
+				src={ SRC && SRC.predicting_hospital_readmissions.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
 				title="Claim Denials Management"
-				src={ SRC.claim_denials_management.jpg }
+				src={ SRC && SRC.claim_denials_management.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
 				title="Clinical Workflow Improvement"
-				src={ SRC.improving_clinical_workflow.jpg }
+				src={ SRC && SRC.improving_clinical_workflow.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
 				to="/"
 				title="Sepsis Prevention"
-				src={ SRC.sepsis_prevention.jpg }
+				src={ SRC && SRC.sepsis_prevention.jpg }
 				placeholder={ placeholder }
 			/>
 		</CardsContainer>

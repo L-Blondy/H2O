@@ -19,7 +19,7 @@ export const BtnContained = styled(Btn)`
 `;
 
 export const BtnOutlined = styled(Btn)`
-	color: ${props => props.color };
+	color: ${ props => props.color };
 	background: none;
 	font-weight: 600;
 `;
@@ -56,13 +56,6 @@ export const Li = styled.li`
 	@media screen and (max-width: ${ bp.burger }){
 		display: ${ props => props.hideMobile ? "none" : "flex" };
 	}
-`;
-
-export const Parallax = styled.div`
-	height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    perspective: 1px;
 `;
 
 export const SectionTitle = styled.h2`

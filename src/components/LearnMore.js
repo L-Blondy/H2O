@@ -7,9 +7,9 @@ function LearnMore() {
 			<SectionTitle>
 				Want to <b>Learn More ?</b>
 			</SectionTitle>
-			<BtnContained color="#005A5A">Join the Team</BtnContained>
+			<BtnContained to="/" color="#005A5A">Join the Team</BtnContained>
 			<div>.</div>
-			<BtnOutlined color="#005A5A">Contact us</BtnOutlined>
+			<BtnOutlined to="/" color="#005A5A">Contact us</BtnOutlined>
 		</>
 	);
 }

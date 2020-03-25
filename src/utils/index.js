@@ -1,1 +1,1 @@
-export { default as getLazyObs } from "./getLazyObs"
+export { default as setupLazyObs } from "./setupLazyObs"

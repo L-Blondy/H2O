@@ -2,10 +2,17 @@ import React from 'react';
 import styled from "styled-components";
 import { bp } from "../styles";
 
-function MainContainer( { children, className, background, minHeight, vertical, horizontal } ) {
+function MainContainer({ children, className, background, minHeight, vertical, horizontal }) {
 	return (
-		<MC background={ background } className={ className } minHeight={ minHeight } >
-			<Contained bp={ bp } vertical={ vertical } horizontal={ horizontal }>
+		<MC
+			background={ background }
+			className={ className }
+			minHeight={ minHeight } >
+
+			<Contained
+				bp={ bp }
+				vertical={ vertical }
+				horizontal={ horizontal }>
 				{ children }
 			</Contained>
 		</MC>
@@ -17,11 +24,12 @@ const MC = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items:stretch;
-	background: ${props => props.background };
+	background: ${ props => props.background };
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	min-height: ${ props => props.minHeight }px;
+	transform: translateZ(0);
 
 	/* section-container */
 	&.section-container {

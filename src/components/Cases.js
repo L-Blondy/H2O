@@ -12,7 +12,7 @@ import { useLazyImg } from "../hooks";
 export default function Cases() {
 
 	const windowSize = useContext(WindowSizeCtx);
-	const [ SRC, setSRC ] = useState(src_desktop);
+	const [ SRC, setSRC ] = useState();
 
 	useEffect(() => {
 		if (windowSize.width < bp.phone.slice(0, 3))
@@ -26,31 +26,31 @@ export default function Cases() {
 	return (
 		<>
 			<Case
-				src={ SRC.CEO1.jpg }
-				placeholder={ SRC.placeholder.jpg }
+				src={ SRC && SRC.CEO1.jpg }
+				placeholder={ SRC && SRC.placeholder.jpg }
 				name={ CEO1.name }
 				job={ CEO1.job }
 				quote={ CEO1.quote }
 				first
 			/>
 			<Case
-				src={ SRC.CEO2.jpg }
-				placeholder={ SRC.placeholder.jpg }
+				src={ SRC && SRC.CEO2.jpg }
+				placeholder={ SRC && SRC.placeholder.jpg }
 				name={ CEO2.name }
 				job={ CEO2.job }
 				quote={ CEO2.quote }
 				reverse
 			/>
 			<Case
-				src={ SRC.CEO3.jpg }
-				placeholder={ SRC.placeholder.jpg }
+				src={ SRC && SRC.CEO3.jpg }
+				placeholder={ SRC && SRC.placeholder.jpg }
 				name={ CEO3.name }
 				job={ CEO3.job }
 				quote={ CEO3.quote }
 			/>
 			<Case
-				src={ SRC.CEO4.jpg }
-				placeholder={ SRC.placeholder.jpg }
+				src={ SRC && SRC.CEO4.jpg }
+				placeholder={ SRC && SRC.placeholder.jpg }
 				name={ CEO4.name }
 				job={ CEO4.job }
 				quote={ CEO4.quote }
