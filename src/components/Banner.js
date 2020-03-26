@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { fontFam, clr, bp } from "../styles";
+import { fontFam, clr, bp } from "../Global";
 
 export default function Banner({ title, headLine, Btn }) {
 	return (

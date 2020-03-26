@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Text } from "../components/styled-components";
-import { clr, fontFam, bp } from "../styles";
+import { clr, fontFam, bp } from "../Global";
 import * as src_desktop from "../assets/cases/desktop/*.*";
 import * as src_tablet from "../assets/cases/tablet/*.*";
 import * as src_phone from "../assets/cases/phone/*.*";

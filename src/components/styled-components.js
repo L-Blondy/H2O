@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { fontFam, clr, bp } from "../styles";
+import { fontFam, clr, bp } from "../Global";
 
 const Btn = styled(Link)`
 	display: inline-block;

@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
-import { bp } from "../styles";
+import { bp } from "../Global";
 
-function useNavbarHeight( windowSize ) {
-	const [ navbarHeight, setNavbarHeight ] = useState( '90px' );
+function useNavbarHeight(windowSize) {
+	const [ navbarHeight, setNavbarHeight ] = useState('90px');
 
-	useEffect( () => {
+	useEffect(() => {
 		let height;
-		if ( windowSize.width > bp.burger.slice( 0, 3 ) )
+		if (windowSize.width > bp.burger.slice(0, 3))
 			height = "90px";
 		else
 			height = "60px";
-		if ( height != navbarHeight )
-			setNavbarHeight( height );
-	}, [ windowSize ] );
+		if (height != navbarHeight)
+			setNavbarHeight(height);
+	}, [ windowSize ]);
 
 	return navbarHeight;
 }

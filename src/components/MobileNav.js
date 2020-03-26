@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
-import { clr, bp, fontFam } from "../styles";
+import { clr, bp, fontFam } from "../Global";
 import { Li } from "./styled-components";
 import { Burger } from "./";
 

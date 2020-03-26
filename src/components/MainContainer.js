@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { bp } from "../styles";
+import { bp } from "../Global";
 
 function MainContainer({ children, className, background, minHeight, vertical, horizontal }) {
 	return (

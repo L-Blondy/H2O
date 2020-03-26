@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import styled from "styled-components";
 import { MainContainer, Cards, Cases, LearnMore } from "../components";
 import { Text, SectionTitle } from "../components/styled-components";
-import { fontFam, clr, bp } from "../styles";
+import { fontFam, clr, bp } from "../Global";
 import { NavbarHeightCtx, WindowSizeCtx } from "../Context";
 
 function Home() {

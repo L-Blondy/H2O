@@ -1,6 +1,6 @@
 import React from 'react';
 import { Banner, MainContainer } from "../components";
-import { clr } from "../styles";
+import { clr } from "../Global";
 
 function Join() {
 	return (

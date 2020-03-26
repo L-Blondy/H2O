@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { BtnContained, BtnOutlined, SectionTitle, Text } from "./styled-components";
-import { clr, bp } from "../styles";
+import { clr, bp } from "../Global";
 
 function LearnMore() {
 	return (

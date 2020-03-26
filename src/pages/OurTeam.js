@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from "styled-components";
 import { Banner, MainContainer } from "../components";
 import { WindowSizeCtx } from "../Context";
-import { clr, fontFam } from "../styles";
+import { clr, fontFam } from "../Global";
 import { BtnContained } from "../components/styled-components";
 import { useLazyImg } from "../hooks";
 import * as src_desktop from "../assets/team/desktop/*.*";

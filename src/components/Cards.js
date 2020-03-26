@@ -4,7 +4,7 @@ import src_desktop from "../assets/cards/desktop/*.*";
 import src_mobile from "../assets/cards/mobile/*.*";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
-import { clr, fontFam, bp } from "../styles";
+import { clr, fontFam, bp } from "../Global";
 import { useLazyImg } from "../hooks";
 import { WindowSizeCtx } from "../Context";
 

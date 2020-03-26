@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
 import { Logo, MainContainer } from "./";
 import { Li } from "./styled-components";
-import { fontFam, clr, bp } from "../styles";
+import { fontFam, clr, bp } from "../Global";
 import { NavbarHeightCtx } from "../Context";
 
 function Navbar() {
 
-	const navbarHeight = useContext( NavbarHeightCtx );
+	const navbarHeight = useContext(NavbarHeightCtx);
 
 	return (
 		<>
