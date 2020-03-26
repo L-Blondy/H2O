@@ -131,6 +131,7 @@ export default OurTeam;
 
 const FlexGrid = styled.div`
 	width: 100%;
+	min-height: 100vh;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -176,6 +177,17 @@ const Member$ = styled.div`
 
 	img {
 		max-width: 100%;
+		min-height: 195px;
+		min-width: 195px;
+
+		@media screen and (max-width: ${ bp.burger }) {
+			min-height: 120px;
+			min-width: 120px;
+		}	
+		@media screen and (max-width: ${ bp.phone }) {
+			min-height: 100px;
+			min-width: 100px;
+		}	
 	}
 
 	/* name */
@@ -208,15 +220,18 @@ const BgContainer = styled.div`
 	z-index: -1;
 
 	img {
-		position: relative;
+		position: absolute;
 		min-height: 160%;
 		z-index: -1;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
 
 		@media screen and (min-width:1200px) and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
-			transform: translateZ(-1px) scale(2);
+			transform: translateX(-50%) translateY(-50%) translateZ(-1px) scale(2);
 		}
 		@-moz-document url-prefix() { 
-			transform: translateZ(-1px) scale(2);
+			transform: translateX(-50%) translateY(-50%) translateZ(-1px) scale(2);
 		} 
 	}
 

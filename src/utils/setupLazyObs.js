@@ -5,7 +5,7 @@ export default function setupLazyObs(root) {
 			loadImg,
 			{
 				threshold: 0.01,
-				rootMargin: "0px 0px 100px 0px",
+				rootMargin: "0px 0px 400px 0px",
 				root
 			});
 
