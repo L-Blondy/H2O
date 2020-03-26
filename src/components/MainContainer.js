@@ -32,7 +32,9 @@ const MC = styled.div`
 	@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
 		transform: translateZ(0);
 	}
-
+	@-moz-document url-prefix() { 
+		transform: none;
+	} 
 	/* section-container */
 	&.section-container {
 		padding-top: 6rem;

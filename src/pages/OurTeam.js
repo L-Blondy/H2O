@@ -219,6 +219,13 @@ const BgContainer = styled.div`
 	transform-style: preserve-3d;
 	z-index: -1;
 
+	@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+		transform: translateZ(0);
+	}
+	@-moz-document url-prefix() { 
+		transform: none;
+	} 
+
 	img {
 		position: absolute;
 		min-height: 160%;
