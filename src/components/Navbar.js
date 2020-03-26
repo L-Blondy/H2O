@@ -57,10 +57,14 @@ const Nav = styled.nav`
 	.logo {
 		display: flex;
 		align-items:center;
-		max-width: 80px;
+		width: 90px;
+
+		@media screen and (max-width: ${ bp.tablet }){
+			width: 80px;
+		}
 
 		@media screen and (max-width: ${ bp.burger }){
-			max-width: 70px;
+			width: 70px;
 		}
 	}
 

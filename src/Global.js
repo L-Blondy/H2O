@@ -57,7 +57,7 @@ export const GlobalStyle = createGlobalStyle`
 	b {
 		color: ${ clr.prim };
 	}
-
+	
 	.parallax {
 		height: 100vh;
 		overflow-x: hidden;

@@ -15,6 +15,7 @@ function OurTeam() {
 	const windowSize = useContext(WindowSizeCtx);
 	const [ SRC, setSRC ] = useState();
 	const [ bgSRC, setBgSRC ] = useState();
+	const bg = useLazyImg(bgSRC);
 
 	useEffect(() => {
 		const { width } = windowSize;
@@ -63,7 +64,7 @@ function OurTeam() {
 			</MainContainer>
 
 			<BgContainer>
-				<img src={ bgSRC } alt="team-bg" />
+				<img ref={ bg } alt="team-bg" />
 			</BgContainer>
 
 			<MainContainer
@@ -207,28 +208,27 @@ const BgContainer = styled.div`
 	z-index: -1;
 
 	img {
-		position: absolute;
-		height: 160%;
+		position: relative;
+		min-height: 160%;
 		z-index: -1;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
 
 		@media screen and (min-width:1200px) and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
-			transform: translateX(-50%) translateY(-50%)  translateZ(-1px) scale(2);
+			transform: translateZ(-1px) scale(2);
 		}
 		@-moz-document url-prefix() { 
-			transform: translateX(-50%) translateY(-50%)  translateZ(-1px) scale(2);
-		}
+			transform: translateZ(-1px) scale(2);
+		} 
 	}
+
 	@media screen and (max-width: ${ bp.tablet }) {
 		height: 300px;
-		img{
+		img {
 			height: auto;
 			width: 100%;
 			min-height: 100%;
 			object-fit: cover;
 		}
+	}
 `;
 
 const BtnContained$ = styled(BtnContained)`
