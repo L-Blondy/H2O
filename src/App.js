@@ -1,11 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Navbar, Footer, MobileNav, Parallax } from "./components";
-// import { Parallax } from "./components/styled-components";
 import Context from "./Context";
 import * as Page from "./pages";
+import { loadPlaceholders } from "./utils";
 
 function App() {
+
+	loadPlaceholders();
+
 	return (
 		<BrowserRouter>
 			<Context>

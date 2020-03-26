@@ -17,8 +17,8 @@ function Solutions() {
 				/>
 			</MainContainer>
 
-			<MainContainer minHeight={ minHeight } background={ "clr.lightGradient" }>
-				<CardsStyled />
+			<MainContainer background={ "clr.lightGradient" }>
+				<CardsStyled minHeight={ minHeight } />
 			</MainContainer>
 		</>
 	);
@@ -29,6 +29,8 @@ export default Solutions;
 const CardsStyled = styled(Cards)`
 	padding-top: 4rem;
 	padding-bottom: 4rem;
+	min-height: 100vh;
+	min-height: ${ props => props.minHeight }px;
 
 	@media screen and (max-width: ${bp.burger }) {
 		padding-top: 3rem;

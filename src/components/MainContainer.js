@@ -6,8 +6,7 @@ function MainContainer({ children, className, background, minHeight, vertical, h
 	return (
 		<MC
 			background={ background }
-			className={ className }
-			minHeight={ minHeight } >
+			className={ className }>
 
 			<Contained
 				bp={ bp }
@@ -28,12 +27,11 @@ const MC = styled.div`
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	min-height: ${ props => props.minHeight }px;
 	transform-style: preserve-3d;
 
-	/* @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+	@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
 		transform: translateZ(0);
-	} */
+	}
 
 	/* section-container */
 	&.section-container {
@@ -69,7 +67,7 @@ const Contained = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content:${ props => props.vertical === "center" ? "center" : props.vertical === "bottom" ? "flex-end" : "initial" };
-	align-items: ${ props => props.horizontal === "center" ? "center" : props.horizontal === "right" ? "flex-end" : "initial" };
+	align-items: ${ props => props.horizontal === "center" ? "center" : props.horizontal === "right" ? "flex-end" : props.horizontal === "left" ? "flex-start" : "initial" };
 	transform-style: preserve-3d;
 
 	@media screen and (max-width:${bp.tablet }) {

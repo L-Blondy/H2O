@@ -67,6 +67,10 @@ export const Li = styled.li`
 	}
 `;
 
+export const Pad = styled.div`
+	height: ${ props => props.height }rem;
+`;
+
 export const SectionTitle = styled.h2`
 	font-family: ${ fontFam.prim };
 	color: ${ clr.sectionTitle };
