@@ -7,7 +7,7 @@ import * as iconsSRC from "../assets/icons/*.*";
 
 function Footer() {
 	return (
-		<FooterStyled>
+		<Footer$>
 			<div className="container">
 
 				<Logo className="logo logo-dark" />
@@ -86,13 +86,13 @@ function Footer() {
 				Copyright © Laurent Blondy 2020.
 				All rights reserved.
 			</div>
-		</FooterStyled>
+		</Footer$>
 	);
 }
 
 export default Footer;
 
-const FooterStyled = styled.footer`
+const Footer$ = styled.footer`
 	display: flex;
 	justify-content: center;
 	align-items: center;

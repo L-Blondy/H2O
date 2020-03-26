@@ -5,13 +5,13 @@ import { clr, bp } from "../Global";
 function Burger(props) {
 
 	return (
-		<BurgerStyled { ...props }>
+		<Burger$ { ...props }>
 			<div className="wrapper">
 				<div className="l1"></div>
 				<div className="l2"></div>
 				<div className="l3"></div>
 			</div>
-		</BurgerStyled>
+		</Burger$>
 	);
 }
 export default Burger;
@@ -19,7 +19,7 @@ export default Burger;
 const duration = "1000ms";
 const curve = "";
 
-const BurgerStyled = styled.div`
+const Burger$ = styled.div`
 	position: fixed;
 	bottom: calc(1.2rem + 4vmin);
 	right: calc(0.6rem + 4vmin);

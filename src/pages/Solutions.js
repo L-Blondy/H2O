@@ -18,7 +18,7 @@ function Solutions() {
 			</MainContainer>
 
 			<MainContainer background={ "clr.lightGradient" }>
-				<CardsStyled minHeight={ minHeight } />
+				<Cards$ minHeight={ minHeight } />
 			</MainContainer>
 		</>
 	);
@@ -26,7 +26,7 @@ function Solutions() {
 
 export default Solutions;
 
-const CardsStyled = styled(Cards)`
+const Cards$ = styled(Cards)`
 	padding-top: 4rem;
 	padding-bottom: 4rem;
 	min-height: 100vh;

@@ -5,19 +5,33 @@ import { WindowSizeCtx } from "../Context";
 import { clr, fontFam, bp } from "../Global";
 import { BtnContained, BtnOutlined, Pad, SectionTitle, Text } from "../components/styled-components";
 import { useLazyImg } from "../hooks";
+import { members } from "../data";
 import * as src_desktop from "../assets/team/desktop/*.*";
 import * as src_mobile from "../assets/team/mobile/*.*";
+import * as src_bg from "../assets/team/bg/*.*";
 
 function OurTeam() {
 
 	const windowSize = useContext(WindowSizeCtx);
 	const [ SRC, setSRC ] = useState();
+	const [ bgSRC, setBgSRC ] = useState();
 
 	useEffect(() => {
+		const { width } = windowSize;
 		if (windowSize.width > bp.burger.slice(0, 3))
 			setSRC(src_desktop);
 		else
 			setSRC(src_mobile);
+
+		const size = (
+			width <= 400 ? "-400" :
+				width <= 600 ? "-600" :
+					width <= 800 ? "-800" :
+						width <= 1100 ? "-1100" :
+							width <= 1400 ? "-1400" : ""
+		);
+		setBgSRC(src_bg[ "team-bg" + size ].jpg);
+
 	}, [ windowSize ]);
 
 	return (
@@ -26,128 +40,31 @@ function OurTeam() {
 				<Banner
 					title="Our Team"
 					headLine="Meet the people that work with us"
-					Btn={ () => {
-						if (windowSize.width > bp.burger.slice(0, 3))
-							return (
-								<BtnContained to="/" color={ clr.primDark }>
-									Join the Team
-								</BtnContained>
-							);
-						else
-							return (
-								<BtnContained to="/" color={ clr.primDark }>
-									Join us
-								</BtnContained>
-							);
-					} }
+					Btn={ () => (
+						<BtnContained$ to="/" color={ clr.primDark }>
+							{ windowSize.width > bp.burger.slice(0, 3) ? "Join the Team" : "Join us" }
+						</BtnContained$>
+					) }
 				/>
 			</MainContainer>
 
 			<MainContainer background={ clr.lightGradient }>
-
 				<FlexGrid>
-					<Member
-						src={ SRC && SRC.jamar_harris.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Jamar Harris"
-						job="Cloud Sofware and network Engineer"
-					/>
-					<Member
-						src={ SRC && SRC.steven_andrews.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Steven Andrews"
-						job="CEO"
-					/>
-					<Member
-						src={ SRC && SRC.sun_rodriguez.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Sun Rodriguez"
-						job="Human Ressources Manager"
-					/>
-					<Member
-						src={ SRC && SRC.al_capers.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Al Capers"
-						job="Front-End Developper"
-					/>
-					<Member
-						src={ SRC && SRC.lee_kimzey.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Lee Kimzey"
-						job="Machine Learning Engineer"
-					/>
-					<Member
-						src={ SRC && SRC.lester_westervelt.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Lester Westervelt"
-						job="Security Specialist"
-					/>
-					<Member
-						src={ SRC && SRC.judi_swoboda.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Judi Swoboda"
-						job="Software Engineer"
-					/>
-					<Member
-						src={ SRC && SRC.billy_sprinkle.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Billy G. Sprinkle"
-						job="Machine Learning Engineer"
-					/>
-					<Member
-						src={ SRC && SRC.mae_yuan_kao.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Mae Yuan Kao"
-						job="Front-End Developper"
-					/>
-					<Member
-						src={ SRC && SRC.thomas_elston.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Thomas Elston"
-						job="Software Engineer"
-					/>
-					<Member
-						src={ SRC && SRC.chad_mathis.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Chad C. Mathis"
-						job="Software Design Engineer"
-					/>
-					<Member
-						src={ SRC && SRC.walter_borges.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Walter Borges"
-						job="Digital Marketing Manager"
-					/>
-					<Member
-						src={ SRC && SRC.michael_coats.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Michael Coats"
-						job="Full Stack Developper"
-					/>
-					<Member
-						src={ SRC && SRC.bill_cobb.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Bill Cobb"
-						job="Director of marketing"
-					/>
-					<Member
-						src={ SRC && SRC.amy_correia.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Amy C. Correia"
-						job="Full Stack Developper"
-					/>
-					<Member
-						src={ SRC && SRC.joshua_thomas.jpg }
-						placeholder={ SRC && SRC.placeholder.jpg }
-						name="Joshua Thomas"
-						job="Machine Learning Engineer"
-					/>
+					{ members.map(member => (
+						<Member
+							src={ SRC && SRC[ member.src ].jpg }
+							placeholder={ SRC && SRC.placeholder.jpg }
+							name={ member.name }
+							job={ member.job }
+							key={ member.name }
+						/>
+					)) }
 				</FlexGrid>
 			</MainContainer>
 
-			<ImgContainer>
-				<img src={ require("../assets/team/team-bg.jpg") } alt="team-bg" />
-			</ImgContainer>
+			<BgContainer>
+				<img src={ bgSRC } alt="team-bg" />
+			</BgContainer>
 
 			<MainContainer
 				horizontal="left"
@@ -178,6 +95,8 @@ function OurTeam() {
 					Candidate now
 				</BtnOutlined>
 
+				<Pad height={ 1 } />
+
 			</MainContainer>
 
 		</>
@@ -189,7 +108,7 @@ function Member({ src, placeholder, name, job }) {
 	const img = useLazyImg(src, placeholder);
 
 	return (
-		<MemberStyled>
+		<Member$>
 
 			<div className="img-wrapper">
 				<img ref={ img } />
@@ -203,7 +122,7 @@ function Member({ src, placeholder, name, job }) {
 				<i>{ job }</i>
 			</div>
 
-		</MemberStyled>
+		</Member$>
 	);
 }
 
@@ -231,7 +150,7 @@ const FlexGrid = styled.div`
 	}
 `;
 
-const MemberStyled = styled.div`
+const Member$ = styled.div`
 	text-align: center;
 	font-family: ${ fontFam.sec };
 	color: ${ clr.sec };
@@ -281,7 +200,7 @@ const MemberStyled = styled.div`
 	}
 `;
 
-const ImgContainer = styled.div`
+const BgContainer = styled.div`
 	height: 450px;
 	position: relative;
 	transform-style: preserve-3d;
@@ -289,6 +208,7 @@ const ImgContainer = styled.div`
 
 	img {
 		position: absolute;
+		height: 160%;
 		z-index: -1;
 		top: 50%;
 		left: 50%;
@@ -300,5 +220,19 @@ const ImgContainer = styled.div`
 		@-moz-document url-prefix() { 
 			transform: translateX(-50%) translateY(-50%)  translateZ(-1px) scale(2);
 		}
+	}
+	@media screen and (max-width: ${ bp.tablet }) {
+		height: 300px;
+		img{
+			height: auto;
+			width: 100%;
+			min-height: 100%;
+			object-fit: cover;
+		}
+`;
+
+const BtnContained$ = styled(BtnContained)`
+	@media screen and (max-width: ${ bp.phone }){
+		font-size: 1.05rem;
 	}
 `;

@@ -67,7 +67,7 @@ function Card({ to, title, src, placeholder }) {
 	const img = useLazyImg(src, placeholder);
 
 	return (
-		<LinkStyled to={ to }>
+		<Link$ to={ to }>
 			<WrapImg>
 				<img ref={ img } />
 			</WrapImg>
@@ -76,7 +76,7 @@ function Card({ to, title, src, placeholder }) {
 				<div className="hover__title">{ title }</div>
 				<div className="hover__learn-more">Learn more</div>
 			</div>
-		</LinkStyled>
+		</Link$>
 	);
 }
 
@@ -87,7 +87,7 @@ const CardsContainer = styled.div`
 	align-content: flex-start;
 	flex-wrap: wrap;
 `;
-const LinkStyled = styled(Link)`
+const Link$ = styled(Link)`
 	position: relative;
 	display: inline-block;
 	font-size: 0;

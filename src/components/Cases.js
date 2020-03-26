@@ -3,11 +3,12 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Text } from "../components/styled-components";
 import { clr, fontFam, bp } from "../Global";
+import { WindowSizeCtx } from "../Context";
+import { useLazyImg } from "../hooks";
+import { customers } from "../data";
 import * as src_desktop from "../assets/cases/desktop/*.*";
 import * as src_tablet from "../assets/cases/tablet/*.*";
 import * as src_phone from "../assets/cases/phone/*.*";
-import { WindowSizeCtx } from "../Context";
-import { useLazyImg } from "../hooks";
 
 export default function Cases() {
 
@@ -25,38 +26,19 @@ export default function Cases() {
 
 	return (
 		<>
-			<Case
-				src={ SRC && SRC.CEO1.jpg }
-				placeholder={ SRC && SRC.placeholder.jpg }
-				name={ CEO1.name }
-				job={ CEO1.job }
-				quote={ CEO1.quote }
-				first
-			/>
-			<Case
-				src={ SRC && SRC.CEO2.jpg }
-				placeholder={ SRC && SRC.placeholder.jpg }
-				name={ CEO2.name }
-				job={ CEO2.job }
-				quote={ CEO2.quote }
-				reverse
-			/>
-			<Case
-				src={ SRC && SRC.CEO3.jpg }
-				placeholder={ SRC && SRC.placeholder.jpg }
-				name={ CEO3.name }
-				job={ CEO3.job }
-				quote={ CEO3.quote }
-			/>
-			<Case
-				src={ SRC && SRC.CEO4.jpg }
-				placeholder={ SRC && SRC.placeholder.jpg }
-				name={ CEO4.name }
-				job={ CEO4.job }
-				quote={ CEO4.quote }
-				reverse
-				last
-			/>
+			{ customers.map((customer, i) => (
+				<Case
+					src={ SRC && SRC[ customer.src ].jpg }
+					placeholder={ SRC && SRC.placeholder.jpg }
+					name={ customer.name }
+					job={ customer.job }
+					quote={ customer.quote }
+					reverse={ i % 2 === 1 }
+					first={ i === 0 }
+					last={ i === customers.length - 1 }
+					key={ customer.name }
+				/>
+			)) }
 		</>
 	);
 }
@@ -68,7 +50,7 @@ function Case({ src, placeholder, reverse, name, job, quote, first, last }) {
 	const img = useLazyImg(src, placeholder);
 
 	return (
-		<CaseStyled reverse={ reverse } first={ first } last={ last }>
+		<Case$ reverse={ reverse } first={ first } last={ last }>
 
 			<div className="picture">
 				<img className="img" ref={ img } alt="image" />
@@ -95,11 +77,11 @@ function Case({ src, placeholder, reverse, name, job, quote, first, last }) {
 				</Text>
 			) }
 
-		</CaseStyled>
+		</Case$>
 	);
 }
 
-const CaseStyled = styled.div`
+const Case$ = styled.div`
 	display: flex;
 	flex-direction: ${props => props.reverse ? "row-reverse" : "row" };
 	flex-wrap: wrap;
