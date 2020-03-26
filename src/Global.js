@@ -69,7 +69,6 @@ export const GlobalStyle = createGlobalStyle`
 		@-moz-document url-prefix() { 
 			perspective: 1px;
 		}
-		//test
 	}
 		
 	.fadeFromTop {

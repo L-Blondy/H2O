@@ -101,6 +101,7 @@ export default Home;
 const Headers = styled.div`
 	width: 100%;
 	min-height: calc(100vh - ${ props => props.navbarHeight });
+	transform-style: preserve-3d;
 
 	/* half */
 	.half {
@@ -111,9 +112,9 @@ const Headers = styled.div`
 	
 	/* half--top */
 	.half--top {
-		height: calc((100vh - ${ props => props.navbarHeight }) / 2);
 		position: relative;
 		transform-style: preserve-3d;
+		height: calc((100vh - ${ props => props.navbarHeight }) / 2);
 		z-index: -1;
 
 		&::before {
@@ -138,14 +139,14 @@ const Headers = styled.div`
 			background-size: cover;
 			background-repeat: no-repeat;
 			z-index: -100;
+			transform: translateX(-50%) translateY(-50%);
 
 			@media screen and (min-width:1200px) and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
 				transform: translateX(-50%) translateY(-90%)  translateZ(-1px) scale(2.05);
 			}
 			@-moz-document url-prefix() { 
-				transform: translateX(-50%) translateY(-50%);
+				transform: translateX(-50%) translateY(-90%)  translateZ(-1px) scale(2.05);
 			}
-			transform: translateX(-50%) translateY(-50%);
 		}
 	}
 

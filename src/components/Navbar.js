@@ -12,7 +12,7 @@ function Navbar() {
 
 	return (
 		<>
-			<MainContainer background={ clr.lightGradient }>
+			<MainContainerStyled background={ clr.lightGradient }>
 				<Nav navbarHeight={ navbarHeight }>
 					<Logo className="logo logo-light" />
 					<ul className="navlinks">
@@ -36,10 +36,15 @@ function Navbar() {
 						</Li>
 					</ul>
 				</Nav>
-			</MainContainer>
+			</MainContainerStyled>
 		</>
 	);
 }
+
+const MainContainerStyled = styled(MainContainer)`
+	position: relative;
+	z-index: 1;
+`;
 
 const Nav = styled.nav`
 	display: flex;

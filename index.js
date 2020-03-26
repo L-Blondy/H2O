@@ -1,7 +1,12 @@
 // import "./index.scss";
-import { GlobalStyle } from "./src/styles";
+import { GlobalStyle } from "./src/Global";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./src/App";
 
-ReactDOM.render( <><GlobalStyle /><App /></>, document.getElementById( "root" ) );
+ReactDOM.render((
+	<>
+		<GlobalStyle />
+		<App />
+	</>
+), document.getElementById("root"));
