@@ -24,10 +24,11 @@
     "source-map-explorer": "^2.4.0"
   },
   "dependencies": {
+    "element-scroll-polyfill": "^1.0.1",
+    "parcel-bundler": "^1.12.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
-    "styled-components": "^5.0.1",
-    "parcel-bundler": "^1.12.4"
+    "styled-components": "^5.0.1"
   }
 }

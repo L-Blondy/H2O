@@ -70,6 +70,11 @@ export const GlobalStyle = createGlobalStyle`
 			perspective: 1px;
 		}
 	}
+
+	.min-height {
+		min-height: 90vh;
+		min-height: ${ props => props.minHeight }px;
+	}
 		
 	.fadeFromTop {
 		opacity: 0;

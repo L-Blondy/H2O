@@ -1,8 +1,10 @@
 import React from 'react';
-import { Banner, Form, MainContainer } from "../components";
+import styled from "styled-components";
+import { Banner, Form, MainContainer, MinHeightWrapper } from "../components";
 import { clr } from "../Global";
 
 function Join() {
+
 	return (
 		<>
 			<MainContainer background={ clr.bannerGradient }>
@@ -11,19 +13,22 @@ function Join() {
 					headLine="The right place to apply !"
 				/>
 			</MainContainer>
-			<MainContainer>
-				<Form
-					Email
-					FirstName
-					LastName
-					Job
-					CompName
-					CompIndustry
-					Phone
-					Country
-					Message
-					Submit="Submit button text"
-				/>
+
+			<MainContainer background={ clr.lightGradient }>
+				<MinHeightWrapper>
+					<Form
+						Email
+						FirstName
+						LastName
+						Job
+						CompName
+						CompIndustry
+						Phone
+						Country
+						Message
+						Submit="Submit button text"
+					/>
+				</MinHeightWrapper>
 			</MainContainer>
 		</>
 	);

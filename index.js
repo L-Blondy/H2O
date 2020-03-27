@@ -1,4 +1,4 @@
-// import "./index.scss";
+import 'element-scroll-polyfill';
 import { GlobalStyle } from "./src/Global";
 import React from "react";
 import ReactDOM from "react-dom";

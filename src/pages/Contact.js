@@ -1,6 +1,7 @@
 import React from 'react';
-import { Banner, MainContainer, LearnMore } from "../components";
+import { Banner, Form, MainContainer, LearnMore } from "../components";
 import { clr } from "../Global";
+
 
 function Contact() {
 	return (

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { bp } from "../Global";
 
-function MainContainer({ children, className, background, minHeight, vertical, horizontal }) {
+function MainContainer({ children, className, background, vertical, horizontal }) {
 	return (
 		<MC
 			background={ background }

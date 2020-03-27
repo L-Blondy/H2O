@@ -1,12 +1,9 @@
 import React from 'react';
-import { MainContainer, Banner, Cards } from "../components";
 import styled from "styled-components";
+import { MainContainer, Banner, Cards, MinHeightWrapper } from "../components";
 import { clr, bp } from "../Global";
-import { useMinHeight } from "../hooks";
 
 function Solutions() {
-
-	const minHeight = useMinHeight(".cards-container");
 
 	return (
 		<>
@@ -18,7 +15,9 @@ function Solutions() {
 			</MainContainer>
 
 			<MainContainer background={ "clr.lightGradient" }>
-				<Cards$ minHeight={ minHeight } />
+				<MinHeightWrapper>
+					<Cards$ />
+				</MinHeightWrapper>
 			</MainContainer>
 		</>
 	);
@@ -29,8 +28,6 @@ export default Solutions;
 const Cards$ = styled(Cards)`
 	padding-top: 4rem;
 	padding-bottom: 4rem;
-	min-height: 100vh;
-	min-height: ${ props => props.minHeight }px;
 
 	@media screen and (max-width: ${bp.burger }) {
 		padding-top: 3rem;
