@@ -140,11 +140,10 @@ const FlexGrid = styled.div`
 
 	@media screen and (max-width: ${bp.burger }){
 		padding-top: 6rem;
-		padding-bottom: 2rem;
+		padding-bottom: 3rem;
 	}
 	@media screen and (max-width: ${bp.phone }){
 		padding-top: 4rem;
-		padding-bottom: 0rem;
 		justify-content:space-evenly;
 	}
 	@media screen and (max-width: 500px){

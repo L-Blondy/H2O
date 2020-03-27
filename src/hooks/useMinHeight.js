@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 
-function useMinHeight( selector ) {
+function useMinHeight(selector) {
 	const [ minHeight, setMinHeight ] = useState();
 
-	useEffect( () => {
-		const target = document.querySelector( selector );
-		window.addEventListener( "resize", handleResize );
+	useEffect(() => {
+		const target = document.querySelector(selector);
+		window.addEventListener("resize", handleResize);
 		handleResize();
 
 		function handleResize() {
-			setMinHeight( window.innerHeight - target.getBoundingClientRect().top + document.documentElement.getBoundingClientRect().top );
+			setMinHeight(window.innerHeight - Math.abs(target.getBoundingClientRect().top));
 		}
-		return () => window.removeEventListener( "resize", handleResize );
-	}, [] );
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	return minHeight;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Navbar, Footer, MobileNav, Parallax } from "./components";
 import Context from "./Context";
+import { Footer, MobileNav, Navbar, Parallax, ScrollToTop } from "./components";
 import * as Page from "./pages";
 import { loadPlaceholders } from "./utils";
 
@@ -40,6 +40,7 @@ function App() {
 
 					<Footer />
 				</Parallax>
+				<ScrollToTop />
 			</Context>
 		</BrowserRouter>
 	);

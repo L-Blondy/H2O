@@ -9,4 +9,5 @@ export { default as MobileNav } from "./MobileNav";
 export { default as Cases } from "./Cases";
 export { default as LearnMore } from "./LearnMore";
 export { default as Parallax } from "./Parallax";
+export { default as ScrollToTop } from "./ScrollToTop";
 
