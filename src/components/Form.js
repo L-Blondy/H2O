@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { BtnContained } from "./styled-components";
 import { clr, fontFam, bp } from "../Global";
 import { useInput } from "../hooks";
-import src_lock from "../assets/icons/lock.svg";
 
 function Form({
 	Title,

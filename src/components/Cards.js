@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import placeholder from "../assets/cards/placeholder.jpg";
 import src_desktop from "../assets/cards/desktop/*.*";
 import src_mobile from "../assets/cards/mobile/*.*";
