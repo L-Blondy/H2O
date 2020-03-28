@@ -1,5 +1,5 @@
 function getMinHeight(target) {
-	return window.innerHeight - Math.abs(target.getBoundingClientRect().top);
+	return 10 + window.innerHeight - Math.abs(target.getBoundingClientRect().top);
 }
 
 export default getMinHeight;

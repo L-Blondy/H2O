@@ -7,11 +7,13 @@ export const fontFam = {
 export const clr = {
 	prim: "#0C8890",
 	sec: "#434747",
+	primLight: "#00CACA",
 	primDark: "#005A5A",
 	sectionTitle: "#6F8181",
 	navlinks: "#5A6060",
 	bigSize: "#6a7b7b",
-	fontLight: "#ffffff",
+	fontLight: "#f1f1f1",
+	formFont: "#eeeeee",
 	lightGradient: "linear-gradient(90deg, #f0f0f0 0%, #fefefe 50%, #f0f0f0 100%)",
 	bannerGradient: "linear-gradient(90deg, #0B757C 0%, #0C8891 51.04%, #0B757C 100%)"
 };

@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from "styled-components";
 import { Banner, Form, MainContainer, MinHeightWrapper } from "../components";
 import { clr } from "../Global";
+import src_arrowRight from '../assets/icons/arrow-right.svg';
+
 
 function Join() {
 
@@ -17,6 +18,7 @@ function Join() {
 			<MainContainer background={ clr.lightGradient }>
 				<MinHeightWrapper>
 					<Form
+						Title="Fill out this form to candidate for a job"
 						Email
 						FirstName
 						LastName
@@ -26,7 +28,10 @@ function Join() {
 						Phone
 						Country
 						Message
-						Submit="Submit button text"
+						Submit={ {
+							text: 'Send your candidature',
+							iconSRC: src_arrowRight
+						} }
 					/>
 				</MinHeightWrapper>
 			</MainContainer>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Banner, Form, MainContainer, LearnMore } from "../components";
+import { Banner, Form, MainContainer, MinHeightWrapper } from "../components";
 import { clr } from "../Global";
-
+import src_lock from "../assets/icons/lock.svg";
 
 function Contact() {
 	return (
@@ -13,9 +13,26 @@ function Contact() {
 				/>
 			</MainContainer>
 
-			<MainContainer className="section-container" background={ clr.lightGradient }>
+			<MainContainer background={ clr.lightGradient }>
 
-				<LearnMore />
+				<MinHeightWrapper>
+					<Form
+						Title="Fill out this form to contact us"
+						Email
+						FirstName
+						LastName
+						Job
+						CompName
+						CompIndustry
+						Phone
+						Country
+						Message
+						Submit={ {
+							text: 'Send This Secure Message',
+							iconSRC: src_lock
+						} }
+					/>
+				</MinHeightWrapper>
 
 			</MainContainer>
 		</>
