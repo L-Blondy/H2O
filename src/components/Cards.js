@@ -80,6 +80,11 @@ function Card({ to, title, src, placeholder }) {
 	);
 }
 
+/*****************
+ * STYLING
+ */
+
+
 const CardsContainer = styled.div`
 	width: 100%;
 	display: flex;

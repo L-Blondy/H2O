@@ -10,7 +10,7 @@ import * as src_desktop from "../assets/cases/desktop/*.*";
 import * as src_tablet from "../assets/cases/tablet/*.*";
 import * as src_phone from "../assets/cases/phone/*.*";
 
-export default function Cases() {
+function Cases() {
 
 	const windowSize = useContext(WindowSizeCtx);
 	const [ SRC, setSRC ] = useState();
@@ -80,6 +80,13 @@ function Case({ src, placeholder, reverse, name, job, quote, first, last }) {
 		</Case$>
 	);
 }
+
+export default Cases;
+
+/*****************
+ * STYLING
+ */
+
 
 const Case$ = styled.div`
 	display: flex;

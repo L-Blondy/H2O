@@ -29,6 +29,10 @@ function LearnMore() {
 
 export default LearnMore;
 
+/*****************
+ * STYLING
+ */
+
 const HeadLine = styled(Text)`
 	text-align: center;
 	font-size: 1.3rem;

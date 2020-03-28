@@ -137,6 +137,10 @@ function FileInput({ width, label, name, bindToForm }) {
 
 export default Form;
 
+/*****************
+ * STYLING
+ */
+
 const Form$ = styled.div`
 	background: ${ clr.sec };
 	padding: 2rem 3rem;

@@ -18,6 +18,12 @@ function MainContainer({ children, className, background, vertical, horizontal }
 	);
 }
 
+export default MainContainer;
+
+/*****************
+ * STYLING
+ */
+
 const MC = styled.div`
 	width: 100%;
 	display: flex;
@@ -76,5 +82,3 @@ const Contained = styled.div`
 		width: 700px;
 	}
 `;
-
-export default MainContainer;

@@ -14,7 +14,13 @@ function Burger(props) {
 		</Burger$>
 	);
 }
+
 export default Burger;
+
+/*****************
+ * STYLING
+ */
+
 
 const duration = "1000ms";
 const curve = "";

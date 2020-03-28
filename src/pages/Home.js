@@ -98,6 +98,10 @@ function Home() {
 
 export default Home;
 
+/*****************
+ * STYLING
+ */
+
 const Headers = styled.div`
 	width: 100%;
 	min-height: calc(100vh - ${ props => props.navbarHeight });

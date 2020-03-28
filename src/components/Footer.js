@@ -92,6 +92,10 @@ function Footer() {
 
 export default Footer;
 
+/*****************
+ * STYLING
+ */
+
 const Footer$ = styled.footer`
 	display: flex;
 	justify-content: center;

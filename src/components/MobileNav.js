@@ -77,6 +77,10 @@ function MobileNav() {
 
 export default MobileNav;
 
+/*****************
+ * STYLING
+ */
+
 const Nav = styled.nav`
 	@media screen and (min-width:${bp.burger }){
 		display: none;

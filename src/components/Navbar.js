@@ -41,6 +41,12 @@ function Navbar() {
 	);
 }
 
+export default Navbar;
+
+/*****************
+ * STYLING
+ */
+
 const MainContainer$ = styled(MainContainer)`
 	position: relative;
 	z-index: 1;
@@ -94,4 +100,3 @@ const Nav = styled.nav`
 	}
 `;
 
-export default Navbar;

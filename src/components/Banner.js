@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { fontFam, clr, bp } from "../Global";
 
-export default function Banner({ title, headLine, Btn }) {
+function Banner({ title, headLine, Btn }) {
 	return (
 		<BannerContainer>
 			<div>
@@ -13,6 +13,12 @@ export default function Banner({ title, headLine, Btn }) {
 		</BannerContainer>
 	);
 }
+
+export default Banner;
+
+/*****************
+ * STYLING
+ */
 
 const BannerContainer = styled.div`
 	display: flex;

@@ -25,6 +25,10 @@ function Solutions() {
 
 export default Solutions;
 
+/*****************
+ * STYLING
+ */
+
 const Cards$ = styled(Cards)`
 	padding-top: 4rem;
 	padding-bottom: 4rem;

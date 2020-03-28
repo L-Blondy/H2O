@@ -20,6 +20,10 @@ function MinHeightWrapper({ children }) {
 
 export default MinHeightWrapper;
 
+/*****************
+ * STYLING
+ */
+
 const MinHeightWrapper$ = styled.div`
 	min-height: 90vh;
 	min-height: ${ props => props.minHeight }px;
