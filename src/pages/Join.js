@@ -22,11 +22,10 @@ function Join() {
 						Email
 						FirstName
 						LastName
-						Job
-						CompName
-						CompIndustry
+						Position
 						Phone
 						Country
+						Curriculum
 						Message
 						Submit={ {
 							text: 'Send your candidature',

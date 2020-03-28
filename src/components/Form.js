@@ -48,23 +48,23 @@ function Form({
 				{ Position && (
 					<Input bindToForm={ bindToForm } width="2" type="text" name="position" label="Position you apply to :" />
 				) }
+				{ Job && (
+					<Input bindToForm={ bindToForm } width="2" type="text" name="job" label="Job Title :" />
+				) }
 				{ CompName && (
 					<Input bindToForm={ bindToForm } width="1" type="text" name="compname" label="Company Name :" />
 				) }
 				{ CompIndustry && (
 					<Input bindToForm={ bindToForm } width="1" type="text" name="compindustry" label="Company Industry :" />
 				) }
-				{ Job && (
-					<Input bindToForm={ bindToForm } width="2" type="text" name="job" label="Position you apply to :" />
-				) }
 				{ Phone && (
-					<Input bindToForm={ bindToForm } width="1" type="text" name="phone" label="Phone Number :" />
+					<Input bindToForm={ bindToForm } width="1" type="tel" name="phone" label="Phone Number :" />
 				) }
 				{ Country && (
 					<Input bindToForm={ bindToForm } width="1" type="text" name="country" label="Country :" />
 				) }
 				{ Curriculum && (
-					<Input bindToForm={ bindToForm } width="2" type="text" name="curriculum" label="Upload your curriculum :" />
+					<FileInput bindToForm={ bindToForm } width="2" name="curriculum" label="Upload your curriculum :" />
 				) }
 				{ Message && (
 					<Input bindToForm={ bindToForm } width="2" type="textarea" name="message" label="Contact Form Message :" />
@@ -98,12 +98,39 @@ function Input({ width, type, label, name, bindToForm }) {
 				{ type === "textarea" ?
 					(
 						<textarea type={ type } name={ name } rows="10" { ...bindValue } required />
-					)
-					: (
+					) : (
 						<input type={ type } name={ name } { ...bindValue } required />
-					)
-				}
+					) }
+
 			</label>
+		</Input$>
+	);
+}
+
+function FileInput({ width, label, name, bindToForm }) {
+
+	const [ value, bindValue ] = useInput("");
+	const [ displayVal, setDisplayVal ] = useState("");
+
+	useEffect(() => {
+		const splitted = value.split("\\");
+		setDisplayVal(splitted[ splitted.length - 1 ]);
+	}, [ value ]);
+
+	useEffect(() => bindToForm({ [ name ]: displayVal }), [ displayVal ]);
+
+	return (
+		<Input$ className="input-wrapper" width={ width }>
+
+			<div>
+				{ label }
+			</div>
+			<label className="file-path-display">
+				<input type="file" name={ name } id="file" className="file-input" { ...bindValue } required />
+				{ displayVal }
+				<div className="file-button"> Browse</div>
+			</label>
+
 		</Input$>
 	);
 }
@@ -149,29 +176,73 @@ const Form$ = styled.div`
 const Input$ = styled.div`
 	display: inline-block;
 	flex-direction: column;
-	width: ${ props => props.width === "1" ? "48%" : "100%" };
+	width: ${ props => props.width === "1" ? "47.5%" : "100%" };
 	padding: 0.6rem 0;
 
 	/* label */
 	label {
-		width: 100;
+		width: 100%;
 		display: flex;
-		flex-direction: column;
-		
+		flex-direction: column;		
 	}
 	input, 
 	textarea {
 		border : none;
 		resize: none;
+		font-family: ${ fontFam.sec };
+		font-size: 16px;	
+		background: white;
+		color: ${ clr.sec };
+
+		&:hover,
+		&:focus {
+			outline: 1px solid gold;
+			outline-offset: 0px;
+		}
 	}
 	input {
-		height: 1.76rem;
+		line-height: 1.77rem;
+		height: 1.77rem;
+		padding: 0 0.5rem;
+	}
+	textarea {
+		padding: 0.35rem 0.5rem;
+	}
+	.file {
+		&-path-display {
+			background: white;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			color: ${ clr.sec };
+
+			&:hover {
+				outline: 1px solid gold;
+				outline-offset: 0px;
+			}
+		}
+		&-input {
+			width: 0.1px;
+			padding: 0;
+		}
+		&-button {
+			border: none;
+			height: 30px;
+			background: #9D9D9D;
+			color: white;
+			font-family: inherit;
+			font-size: inherit;
+			padding: 0 1rem;
+			font-weight: 600;
+			display: flex;
+			align-items: center;
+		}
 	}
 `;
 
 const Submit$ = styled(BtnContained)`
 	margin-top: 2rem;
-	font-size: inherit;
+	font-size: 1rem;
 	border-radius: inherit;
 	padding:  0.65em 1.3em;
 
