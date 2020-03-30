@@ -197,9 +197,9 @@ const Form$ = styled.div`
 		}
 	}
 	@media screen and (max-width: ${ bp.phone }){
-		font-size: 14px;
-		padding: 2em 7%;
-
+		font-size: 15px;
+		padding: 1.8em 5.5%;
+		
 		.title {
 			white-space: pre;
 		}
@@ -209,8 +209,12 @@ const Form$ = styled.div`
 const Input$ = styled.div`
 	display: inline-block;
 	flex-direction: column;
-	width: ${ props => props.width === "1" ? "47.5%" : "100%" };
 	padding: 0.45em 0;
+	width: ${ props => props.width === "1" ? "47.5%" : "100%" };
+
+	@media screen and (max-width: ${ bp.phone }){
+		width: ${ props => props.width === "1" ? "48.5%" : "100%" };
+	}
 
 	/* label */
 	label {

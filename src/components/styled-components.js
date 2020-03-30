@@ -47,6 +47,10 @@ export const ContactData = styled.div`
 		width: 100%;
 		max-width: 500px;
 		margin: auto;
+
+		.text {
+			font-size: 1em;
+		}
 	}
 `;
 

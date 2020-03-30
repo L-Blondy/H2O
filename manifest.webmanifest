@@ -1,0 +1,15 @@
+{
+	"short_name": "H2O.ai",
+	"name": "H2O",
+	"icons": [
+		{
+			"src": "/src/assets/favicon.jpg",
+			"sizes": "32x32",
+			"type": "image/jpg"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff"
+}

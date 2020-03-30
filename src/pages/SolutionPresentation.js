@@ -24,7 +24,7 @@ function SolutionPresentation() {
 			</MainContainer>
 
 			<MainContainer background={ clr.lightGradient }>
-				<Pad height="0.5" />
+				<Pad height="0.5" heightPhone="0" />
 
 				<Step
 					name='Challenge'
@@ -92,20 +92,17 @@ const Step$ = styled.div`
 		flex-basis: 30%;
 		flex-shrink: 0;
 		transform: translateY(-0.25em);
+		padding-bottom: 0.5rem;
 	}
 
 	@media screen and (max-width: ${ bp.burger }){
 		flex-direction: column;
-		margin-top: 2.5rem;
-
-		/* h2 {
-			font-size: 1.5rem;
-		} */
+		margin-top: 3.5rem;
 	}
 	@media screen and (max-width: ${ bp.phone }){
 
 		h2 {
-			font-size: 1.5rem;
+			font-size: 1.65rem;
 		}
 	}
 `;

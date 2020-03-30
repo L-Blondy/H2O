@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "rm -rf dist && parcel build index.html --public-url https://l-blondy.github.io/H2O/",
-    "deploy": "npm run build && gh-pages -d dist",
+    "build": "rm -rf dist && parcel build index.html 404.html --public-url /H2O/",
+    "deploy": "npm run build && copyfiles robots.txt dist && gh-pages -d dist",
     "analyze": "source-map-explorer dist/H2O.*",
     "test:eslint": "eslint src/ --ext .js --ext .jsx"
   },

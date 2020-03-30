@@ -6,11 +6,10 @@ import * as Page from "./pages";
 import { loadPlaceholders } from "./utils";
 
 function App() {
-
 	loadPlaceholders();
 
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={ process.env.NODE_ENV === 'development' ? '' : '/H2O/' }>
 			<Context>
 				<MobileNav />
 

@@ -5,7 +5,6 @@ export const NavbarHeightCtx = createContext();
 export const WindowSizeCtx = createContext();
 export const ObsCtx = createContext();
 
-
 export default function Context({ children }) {
 	const windowSize = useWindowSize();
 	const navbarHeight = useNavbarHeight(windowSize);

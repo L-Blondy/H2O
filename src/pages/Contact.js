@@ -70,4 +70,9 @@ const Form$ = styled(Form)`
 		position: initial;
 		width: 100%;
 	}
+	@media screen and (max-width: ${ bp.phone }){
+		position: initial;
+		width: calc(100% + 2rem);
+		transform: translateX(-1rem)
+	}
 `;
