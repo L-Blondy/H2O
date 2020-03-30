@@ -33,6 +33,23 @@ export const BtnOutlined = styled(Btn)`
 	font-weight: 600;
 `;
 
+export const ContactData = styled.div`
+	width: 21em;
+	max-width: 45%;
+	padding: 2.5rem 0 3.5rem 0;
+
+	.text {
+		font-size: 1.1em;
+		padding: 1.0rem 0;
+	}
+
+	@media screen and (max-width: ${ bp.burger }){
+		width: 100%;
+		max-width: 500px;
+		margin: auto;
+	}
+`;
+
 export const Li = styled.li`
 	display: flex;
 	position: relative;
@@ -69,6 +86,13 @@ export const Li = styled.li`
 
 export const Pad = styled.div`
 	height: ${ props => props.height }rem;
+
+	@media screen and (max-width: ${ bp.burger }){
+		height: ${ props => props.heightBurger }rem;
+	}
+	@media screen and (max-width: ${ bp.phone }){
+		height: ${ props => props.heightPhone }rem;
+	}
 `;
 
 export const SectionTitle = styled.h2`
@@ -77,7 +101,7 @@ export const SectionTitle = styled.h2`
 	font-weight: bold;
 	width: 100%;
 	text-align: ${props => props.align || "left" };
-	font-size: 2.52rem;
+	font-size: 2.35rem;
 	padding-bottom: 3.5rem;
 
 	@media screen and (max-width: ${ bp.tablet } ){

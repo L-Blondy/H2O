@@ -24,6 +24,9 @@ function App() {
 						<Route exact path="/solutions" render={ () => (
 							<Page.Solutions />
 						) } />
+						<Route exact path="/solutions/:sol" render={ () => (
+							<Page.SolutionPresentation />
+						) } />
 						<Route exact path="/case-studies" render={ () => (
 							<Page.CaseStudies />
 						) } />

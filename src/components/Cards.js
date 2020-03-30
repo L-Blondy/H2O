@@ -23,37 +23,37 @@ function Cards({ className }) {
 	return (
 		<CardsContainer className={ className + " cards-container" } >
 			<Card
-				to="/"
+				to="/solutions/icu_transfers"
 				title="ICU Transfers Prediction"
 				src={ SRC && SRC.predicting_icu_transfers.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
-				to="/"
+				to="/solutions/medical_testing"
 				title="Medical Testing"
 				src={ SRC && SRC.medical_testing.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
-				to="/"
+				to="/solutions/hospital_readmissions"
 				title={ `${ window.innerWidth > 700 || window.innerWidth < 576 ? "Hospital" : "" } Readmissions Prediction` }
 				src={ SRC && SRC.predicting_hospital_readmissions.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
-				to="/"
+				to="/solutions/claim_denials"
 				title="Claim Denials Management"
 				src={ SRC && SRC.claim_denials_management.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
-				to="/"
+				to="/solutions/clinical_workflow"
 				title="Clinical Workflow Improvement"
 				src={ SRC && SRC.improving_clinical_workflow.jpg }
 				placeholder={ placeholder }
 			/>
 			<Card
-				to="/"
+				to="/solutions/sepsis_prevention"
 				title="Sepsis Prevention"
 				src={ SRC && SRC.sepsis_prevention.jpg }
 				placeholder={ placeholder }
@@ -145,6 +145,11 @@ const Link$ = styled(Link)`
 			font-size: 0.9rem;
 			text-decoration: underline rgba(255,255,255,0.6);
 			padding-top: 8px;
+
+			&:hover {
+				color: #dfc800;
+				text-decoration-color: #dfc800;
+			}
 		}
 	}
 

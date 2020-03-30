@@ -42,7 +42,7 @@ function OurTeam() {
 					title="Our Team"
 					headLine="Meet the people that work with us"
 					Btn={ () => (
-						<BtnContained$ to="/" color={ clr.primDark }>
+						<BtnContained$ to="/join" color={ clr.primDark }>
 							{ windowSize.width > bp.burger.slice(0, 3) ? "Join the Team" : "Join us" }
 						</BtnContained$>
 					) }
@@ -92,7 +92,7 @@ function OurTeam() {
 
 				<Pad height={ 3 } />
 
-				<BtnOutlined to="/" color={ clr.prim }>
+				<BtnOutlined to="/join" color={ clr.prim }>
 					Candidate now
 				</BtnOutlined>
 

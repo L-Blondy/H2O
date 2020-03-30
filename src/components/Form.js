@@ -17,7 +17,8 @@ function Form({
 	Country,
 	Message,
 	Curriculum,
-	Submit
+	Submit,
+	className
 }) {
 
 	const [ state, setState ] = useState({});
@@ -27,10 +28,15 @@ function Form({
 		...value
 	});
 
-	useEffect(() => console.log(state), [ state ]);
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		alert("Message sent with success !");
+		console.log(state);
+		window.location.reload(false);
+	};
 
 	return (
-		<Form$>
+		<Form$ className={ className } onSubmit={ handleSubmit }>
 			<form>
 				{ Title && (
 					<h3 className="title">{ Title }</h3>
@@ -96,7 +102,7 @@ function Input({ width, type, label, name, bindToForm }) {
 				{ label }
 				{ type === "textarea" ?
 					(
-						<textarea type={ type } name={ name } rows="10" { ...bindValue } required />
+						<textarea type={ type } name={ name } rows="8" { ...bindValue } required />
 					) : (
 						<input type={ type } name={ name } { ...bindValue } required />
 					) }
@@ -142,10 +148,9 @@ export default Form;
 
 const Form$ = styled.div`
 	background: ${ clr.sec };
-	padding: 2rem 3rem;
-	width: 50%;
+	padding: 2.7em 3.2em;
 	color: ${ clr.formFont };
-	font-size: 16px;
+	font-size: 15px;
 	font-family: ${ fontFam.sec };
 	line-height: 1.5em;
 
@@ -159,10 +164,11 @@ const Form$ = styled.div`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		text-align: center;
 		width: 100%;
 		font-family: ${ fontFam.sec };
 		font-weight: 600;
-		font-size: 1.05rem;
+		font-size: 1.1em;
 		letter-spacing: 0.01em;
 
 		&::after {
@@ -171,7 +177,31 @@ const Form$ = styled.div`
 			height: 1px;
 			border-radius: 20px;
 			background: ${ clr.primLight };
-			margin: 0.7rem;
+			margin: 0.8em;
+		}
+	}
+
+	@media screen and (max-width: ${ bp.tablet }){
+		padding: 2em 3.5%;
+
+		.title {
+			white-space: pre;
+		}
+	}
+	@media screen and (max-width: ${ bp.burger }){
+		padding: 2.7em 2.5em;
+		margin: 2rem 0;
+
+		.title {
+			white-space: normal;
+		}
+	}
+	@media screen and (max-width: ${ bp.phone }){
+		font-size: 14px;
+		padding: 2em 7%;
+
+		.title {
+			white-space: pre;
 		}
 	}
 `;
@@ -180,7 +210,7 @@ const Input$ = styled.div`
 	display: inline-block;
 	flex-direction: column;
 	width: ${ props => props.width === "1" ? "47.5%" : "100%" };
-	padding: 0.6rem 0;
+	padding: 0.45em 0;
 
 	/* label */
 	label {
@@ -193,8 +223,8 @@ const Input$ = styled.div`
 		border : none;
 		resize: none;
 		font-family: ${ fontFam.sec };
-		font-size: 16px;	
-		background: white;
+		font-size: 1.05em;	
+		background: #f0f0f0;
 		color: ${ clr.sec };
 
 		&:hover,
@@ -204,16 +234,17 @@ const Input$ = styled.div`
 		}
 	}
 	input {
-		line-height: 1.77rem;
-		height: 1.77rem;
+		line-height: 1.8em;
+		height: 1.8em;
 		padding: 0 0.5rem;
 	}
 	textarea {
-		padding: 0.35rem 0.5rem;
+		padding: 0.3em 0.5em;
 	}
 	.file {
 		&-path-display {
-			background: white;
+			position: relative;
+			background: #f0f0f0;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
@@ -225,34 +256,39 @@ const Input$ = styled.div`
 			}
 		}
 		&-input {
-			width: 0.1px;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
 			padding: 0;
 		}
 		&-button {
 			border: none;
-			height: 30px;
+			height: 1.8em;
 			background: #9D9D9D;
 			color: white;
 			font-family: inherit;
 			font-size: inherit;
-			padding: 0 1rem;
+			padding: 0 1em;
 			font-weight: 600;
 			display: flex;
 			align-items: center;
+			font-size: 1.1em;
+			margin-left: auto;
 		}
 	}
 `;
 
 const Submit$ = styled(BtnContained)`
-	margin-top: 2rem;
-	font-size: 1rem;
+	margin-top: 1.55em;
+	font-size: 1.05em;
 	border-radius: inherit;
-	padding:  0.65em 1.3em;
+	padding:  0.5em 1.3em;
 
 	&::after {
 		content: '';
-		padding-left: 0.9rem;
-		margin-left: 0.8rem;
+		padding-left: 0.9em;
+		margin-left: 0.8em;
 		background-image: url(${ props => props.iconSRC });
 		background-repeat: no-repeat;
 		background-position: center;

@@ -212,10 +212,10 @@ const Burger$ = styled.div`
 			transform: translateX(0);
 		}
 		20% {
-			transform: translateX(150%) rotate(135deg);
+			transform: translateX(160%) rotate(135deg);
 		}
 		70% {
-			transform: translateX(150%) rotate(135deg);
+			transform: translateX(160%) rotate(135deg);
 		}
 		0% {
 			transform: translateX(0);

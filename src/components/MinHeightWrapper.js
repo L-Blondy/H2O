@@ -25,6 +25,7 @@ export default MinHeightWrapper;
  */
 
 const MinHeightWrapper$ = styled.div`
+	position: relative;
 	min-height: 90vh;
 	min-height: ${ props => props.minHeight }px;
 `;

@@ -86,10 +86,7 @@ function Home() {
 
 			</MainContainer>
 
-			<MainContainer
-				className="section-container" >
-
-
+			<MainContainer className="section-container">
 				<LearnMore />
 			</MainContainer>
 		</>

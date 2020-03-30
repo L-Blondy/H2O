@@ -15,11 +15,11 @@ function LearnMore() {
 			<CTA>Share your case with us !</CTA>
 
 			<BtnWrapper>
-				<BtnContained to="/" color={ clr.prim }>
+				<BtnContained to="/contact" color={ clr.prim }>
 					Contact us
 				</BtnContained>
 
-				<BtnOutlined to="/" color={ clr.prim }>
+				<BtnOutlined to="/solutions" color={ clr.prim }>
 					Learn More
 				</BtnOutlined>
 			</BtnWrapper>
