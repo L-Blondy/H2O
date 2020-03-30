@@ -112,15 +112,15 @@ module.exports="https://l-blondy.github.io/H2O/claim_denials_management.52de46de
 module.exports="https://l-blondy.github.io/H2O/improving_clinical_workflow.d5dc9127.jpg";
 },{}],"JMXr":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/H2O/medical_testing.bb6ac0d1.jpg";
-},{}],"g7HO":[function(require,module,exports) {
-module.exports="https://l-blondy.github.io/H2O/predicting_icu_transfers.d57255fa.jpg";
 },{}],"ClR9":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/H2O/predicting_hospital_readmissions.5493ef6f.jpg";
+},{}],"g7HO":[function(require,module,exports) {
+module.exports="https://l-blondy.github.io/H2O/predicting_icu_transfers.d57255fa.jpg";
 },{}],"cwzI":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/H2O/sepsis_prevention.0281862a.jpg";
 },{}],"yUSO":[function(require,module,exports) {
-module.exports={claim_denials_management:{jpg:require("./claim_denials_management.jpg")},improving_clinical_workflow:{jpg:require("./improving_clinical_workflow.jpg")},medical_testing:{jpg:require("./medical_testing.jpg")},predicting_icu_transfers:{jpg:require("./predicting_icu_transfers.jpg")},predicting_hospital_readmissions:{jpg:require("./predicting_hospital_readmissions.jpg")},sepsis_prevention:{jpg:require("./sepsis_prevention.jpg")}};
-},{"./claim_denials_management.jpg":"zzXQ","./improving_clinical_workflow.jpg":"uaik","./medical_testing.jpg":"JMXr","./predicting_icu_transfers.jpg":"g7HO","./predicting_hospital_readmissions.jpg":"ClR9","./sepsis_prevention.jpg":"cwzI"}],"VR2t":[function(require,module,exports) {
+module.exports={claim_denials_management:{jpg:require("./claim_denials_management.jpg")},improving_clinical_workflow:{jpg:require("./improving_clinical_workflow.jpg")},medical_testing:{jpg:require("./medical_testing.jpg")},predicting_hospital_readmissions:{jpg:require("./predicting_hospital_readmissions.jpg")},predicting_icu_transfers:{jpg:require("./predicting_icu_transfers.jpg")},sepsis_prevention:{jpg:require("./sepsis_prevention.jpg")}};
+},{"./claim_denials_management.jpg":"zzXQ","./improving_clinical_workflow.jpg":"uaik","./medical_testing.jpg":"JMXr","./predicting_hospital_readmissions.jpg":"ClR9","./predicting_icu_transfers.jpg":"g7HO","./sepsis_prevention.jpg":"cwzI"}],"VR2t":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/H2O/claim_denials_management.fdc91111.jpg";
 },{}],"qLDC":[function(require,module,exports) {
 module.exports="https://l-blondy.github.io/H2O/improving_clinical_workflow.2c31c319.jpg";
@@ -337,4 +337,4 @@ module.exports={"team-bg-1100":{jpg:require("./team-bg-1100.jpg")},"team-bg-1400
 },{"react":"HdMw","react-router-dom":"rx6s","./Context":"m8l7","./components":"sVUx","./pages":"hAmQ","./utils":"iWjG"}],"Focm":[function(require,module,exports) {
 "use strict";require("element-scroll-polyfill");var e=require("./src/Global"),l=u(require("react")),r=u(require("react-dom")),t=u(require("./src/App"));function u(e){return e&&e.__esModule?e:{default:e}}r.default.render(l.default.createElement(l.default.Fragment,null,l.default.createElement(e.GlobalStyle,null),l.default.createElement(t.default,null)),document.getElementById("root"));
 },{"element-scroll-polyfill":"qhVA","./src/Global":"OXZS","react":"HdMw","react-dom":"X9zx","./src/App":"FLHj"}]},{},["Focm"], null)
-//# sourceMappingURL=https://l-blondy.github.io/H2O/H2O.83144698.js.map
+//# sourceMappingURL=https://l-blondy.github.io/H2O/H2O.540ff3e3.js.map
