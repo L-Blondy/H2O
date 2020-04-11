@@ -92,7 +92,7 @@ const Nav = styled.nav`
 	height: 100%;
 	width: 100%;
 	background: radial-gradient(50% 50% at 50% 50%,#3d4f4f 0%,#334646 100%);
-	z-index: 1;
+	z-index: 2;
 	display: flex;
 	flex-direction: column;
 	align-items:center;

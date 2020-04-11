@@ -37,6 +37,7 @@ export const ContactData = styled.div`
 	width: 21em;
 	max-width: 45%;
 	padding: 2.5rem 0 3.5rem 0;
+	min-height: 640px;
 
 	.text {
 		font-size: 1.1em;
