@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from "styled-components";
 import { BtnContained } from "./styled-components";
 import { clr, fontFam, bp } from "../Global";
+import { WindowSizeCtx } from '../Context';
 import { useInput } from "../hooks";
 
 function Form({
@@ -21,6 +22,7 @@ function Form({
 	className
 }) {
 
+	const windowSize = useContext(WindowSizeCtx);
 	const [ state, setState ] = useState({});
 
 	const bindToForm = (value) => setState({
@@ -60,7 +62,7 @@ function Form({
 					<Input bindToForm={ bindToForm } width="1" type="text" name="compname" label="Company Name :" />
 				) }
 				{ CompIndustry && (
-					<Input bindToForm={ bindToForm } width="1" type="text" name="compindustry" label="Company Industry :" />
+					<Input bindToForm={ bindToForm } width="1" type="text" name="compindustry" label={ `${ windowSize.width > 400 ? 'Company' : '' } Industry :` } />
 				) }
 				{ Phone && (
 					<Input bindToForm={ bindToForm } width="1" type="tel" name="phone" label="Phone Number :" />
@@ -168,7 +170,7 @@ const Form$ = styled.div`
 		width: 100%;
 		font-family: ${ fontFam.sec };
 		font-weight: 600;
-		font-size: 1.1em;
+		font-size: 1.2em;
 		letter-spacing: 0.01em;
 
 		&::after {
