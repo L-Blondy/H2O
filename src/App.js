@@ -6,6 +6,7 @@ import * as Page from "./pages";
 import { loadPlaceholders } from "./utils";
 
 function App() {
+
 	loadPlaceholders();
 
 	return (
