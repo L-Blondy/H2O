@@ -56,7 +56,7 @@ function Footer() {
 				<ul className="external-links">
 					<li>
 						<a
-							href="https://www.google.com"
+							href="https://github.com/L-Blondy/H2O"
 							target="_blank"
 							rel="noreferrer noopener">
 							<Icon src={ iconsSRC.github.svg } />
@@ -64,7 +64,7 @@ function Footer() {
 					</li>
 					<li>
 						<a
-							href="https://www.google.com"
+							href="https://www.linkedin.com/organization-guest/company/h2oai?challengeId=AQGrEI9IInLevAAAAXL_SWdVonceTdO_ZnSQzDiUeqELc7pbVg-EOwPtQJXUkPSqcn0_8mjUm-KTMWlSSrj3YZPHOb4bgXoShQ&submissionId=e69c15b6-ddf7-1c16-8c84-8328bebac87b"
 							target="_blank"
 							rel="noreferrer noopener">
 							<Icon src={ iconsSRC.linkedin.svg } />
@@ -72,7 +72,7 @@ function Footer() {
 					</li>
 					<li>
 						<a
-							href="https://www.google.com"
+							href="https://twitter.com/h2oai?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
 							target="_blank"
 							rel="noreferrer noopener">
 							<Icon src={ iconsSRC.twitter.svg } />
