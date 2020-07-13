@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
-import placeholder from "../assets/cards/placeholder.jpg";
-import src_desktop from "../assets/cards/desktop/*.*";
-import src_mobile from "../assets/cards/mobile/*.*";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
-import { clr, fontFam, bp } from "../Global";
-import { useLazyImg } from "../hooks";
-import { WindowSizeCtx } from "../Context";
+import placeholder from "#/assets/cards/placeholder.jpg";
+import src_desktop from "#/assets/cards/desktop";
+import src_mobile from "#/assets/cards/mobile";
+import { clr, fontFam, bp } from "#/Global";
+import { useLazyImg } from "#/hooks";
+import { WindowSizeCtx } from "#/Context";
 
 function Cards({ className }) {
 

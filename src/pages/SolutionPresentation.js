@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Banner, Cards, Cases, MainContainer } from '../components';
-import { Pad, SectionTitle, Text } from '../components/styled-components';
-import { clr, bp, fontFam } from '../Global';
-import { solutions } from "../data";
+import { Pad, SectionTitle, Text } from '#/components/styled-components';
+import { clr, bp, fontFam } from '#/Global';
+import { solutions } from "#/data";
 
 function SolutionPresentation() {
 

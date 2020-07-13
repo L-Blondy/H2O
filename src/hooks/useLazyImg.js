@@ -1,5 +1,5 @@
 import { useRef, useEffect, useContext } from 'react';
-import { ObsCtx } from "../Context";
+import { ObsCtx } from "#/Context";
 
 function getLazyImg(img, src, placeholder, observer) {
 

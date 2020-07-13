@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { clr, fontFam, bp } from "../Global";
 import { Logo } from "./";
-import * as iconsSRC from "../assets/icons/*.*";
+import iconsSRC from "#/assets/icons";
 
 function Footer() {
 	return (

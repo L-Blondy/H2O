@@ -1,14 +1,14 @@
 
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { Text } from "../components/styled-components";
-import { clr, fontFam, bp } from "../Global";
-import { WindowSizeCtx } from "../Context";
-import { useLazyImg } from "../hooks";
-import { customers } from "../data";
-import * as src_desktop from "../assets/cases/desktop/*.*";
-import * as src_tablet from "../assets/cases/tablet/*.*";
-import * as src_phone from "../assets/cases/phone/*.*";
+import { Text } from "#/components/styled-components";
+import { clr, fontFam, bp } from "#/Global";
+import { WindowSizeCtx } from "#/Context";
+import { useLazyImg } from "#/hooks";
+import { customers } from "#/data";
+import src_desktop from "#/assets/cases/desktop";
+import src_tablet from "#/assets/cases/tablet";
+import src_phone from "#/assets/cases/phone";
 
 function Cases() {
 

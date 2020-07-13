@@ -4,9 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "parcel index.html",
-		"build": "rm -rf dist && parcel build index.html 404.html --public-url /H2O/",
-		"deploy": "npm run build && copyfiles robots.txt dist && gh-pages -d dist",
+		"start": "parcel public/index.html",
+		"build": "rm -rf dist && parcel build public/index.html public/404.html --public-url /H2O/",
+		"deploy": "npm run build && copyfiles public/robots.txt dist && gh-pages -d dist",
 		"analyze": "source-map-explorer dist/H2O.*",
 		"test:eslint": "eslint src/ --ext .js --ext .jsx",
 		"test": "jest"
@@ -34,5 +34,8 @@
 		"react-dom": "^16.13.0",
 		"react-router-dom": "^5.1.2",
 		"styled-components": "^5.0.1"
+	},
+	"alias": {
+		"#": "/../src"
 	}
 }

@@ -3,7 +3,7 @@
 	"name": "H2O",
 	"icons": [
 		{
-			"src": "/src/assets/favicon.jpg",
+			"src": "#/favicon.jpg",
 			"sizes": "32x32",
 			"type": "image/jpg"
 		}

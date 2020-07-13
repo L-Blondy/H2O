@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Context from "./Context";
-import { Footer, MobileNav, Navbar, Parallax, ScrollToTop } from "./components";
-import * as Page from "./pages";
-import { loadPlaceholders } from "./utils";
+import Context from "#/Context";
+import { Footer, MobileNav, Navbar, Parallax, ScrollToTop } from "#/components";
+import * as Page from "#/pages";
+import { loadPlaceholders } from "#/utils";
 
 function App() {
 

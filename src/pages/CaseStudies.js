@@ -1,7 +1,7 @@
 import React from 'react';
 import { Banner, MainContainer } from "../components";
-import { Cases } from "../components";
-import { clr } from "../Global";
+import { Cases } from "#/components";
+import { clr } from "#/Global";
 
 function CaseStudies() {
 

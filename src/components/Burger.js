@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { clr, bp } from "../Global";
+import { clr, bp } from "#/Global";
 
 function Burger(props) {
 

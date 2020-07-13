@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { bp } from "../Global";
+import { bp } from "#/Global";
 
 function useNavbarHeight(windowSize) {
 	const [ navbarHeight, setNavbarHeight ] = useState('90px');

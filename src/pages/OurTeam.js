@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from "styled-components";
-import { Banner, MainContainer } from "../components";
-import { WindowSizeCtx } from "../Context";
-import { clr, fontFam, bp } from "../Global";
-import { BtnContained, BtnOutlined, Pad, SectionTitle, Text } from "../components/styled-components";
-import { useLazyImg } from "../hooks";
-import { members } from "../data";
-import * as src_desktop from "../assets/team/desktop/*.*";
-import * as src_mobile from "../assets/team/mobile/*.*";
-import * as src_bg from "../assets/team/bg/*.*";
+import { Banner, MainContainer } from "#/components";
+import { WindowSizeCtx } from "#/Context";
+import { clr, fontFam, bp } from "#/Global";
+import { BtnContained, BtnOutlined, Pad, SectionTitle, Text } from "#/components/styled-components";
+import { useLazyImg } from "#/hooks";
+import { members } from "#/data";
+import src_desktop from "#/assets/team/desktop";
+import src_mobile from "#/assets/team/mobile";
+import src_bg from "#/assets/team/bg";
 
 function OurTeam() {
 

@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import styled from "styled-components";
 import { MainContainer, Cards, Cases, LearnMore } from "../components";
-import { Text, SectionTitle } from "../components/styled-components";
-import { fontFam, clr, bp } from "../Global";
-import { NavbarHeightCtx, WindowSizeCtx } from "../Context";
+import { Text, SectionTitle } from "#/components/styled-components";
+import { fontFam, clr, bp } from "#/Global";
+import { NavbarHeightCtx, WindowSizeCtx } from "#/Context";
 
 function Home() {
 
@@ -13,12 +13,12 @@ function Home() {
 
 	useEffect(() => {
 		const width = windowSize.width;
-		width < 400 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x400w.jpg")) :
-			width < 500 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x500w.jpg")) :
-				width < 800 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x800w.jpg")) :
-					width < 1100 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x1100w.jpg")) :
-						width < 1600 ? setHalfTop_bg(require("../assets/home-header-bg/home-header-bg_x1600w.jpg")) :
-							setHalfTop_bg(require("../assets/home-header-bg/home-header-bg.jpg"));
+		width < 400 ? setHalfTop_bg(require("#/assets/home-header-bg/home-header-bg_x400w.jpg")) :
+			width < 500 ? setHalfTop_bg(require("#/assets/home-header-bg/home-header-bg_x500w.jpg")) :
+				width < 800 ? setHalfTop_bg(require("#/assets/home-header-bg/home-header-bg_x800w.jpg")) :
+					width < 1100 ? setHalfTop_bg(require("#/assets/home-header-bg/home-header-bg_x1100w.jpg")) :
+						width < 1600 ? setHalfTop_bg(require("#/assets/home-header-bg/home-header-bg_x1600w.jpg")) :
+							setHalfTop_bg(require("#/assets/home-header-bg/home-header-bg.jpg"));
 
 	}, [ windowSize ]);
 

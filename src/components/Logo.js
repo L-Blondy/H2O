@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import src_LogoLight from "../assets/logo/logo-light.svg";
-import src_LogoDark from "../assets/logo/logo-dark.svg";
+import src_LogoLight from "#/assets/logo/logo-light.svg";
+import src_LogoDark from "#/assets/logo/logo-dark.svg";
 import styled from "styled-components";
 
 function Logo({ className }) {

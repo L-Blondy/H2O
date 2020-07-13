@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import { MainContainer, Banner, Cards, MinHeightWrapper } from "../components";
-import { clr, bp } from "../Global";
+import { MainContainer, Banner, Cards, MinHeightWrapper } from "#/components";
+import { clr, bp } from "#/Global";
 
 function Solutions() {
 

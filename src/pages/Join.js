@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Banner, Form, MainContainer, MinHeightWrapper } from '../components';
-import { ContactData, Text } from '../components/styled-components';
-import { clr, bp } from '../Global';
-import src_arrowRight from '../assets/icons/arrow-right.svg';
+import { Banner, Form, MainContainer, MinHeightWrapper } from '#/components';
+import { ContactData, Text } from '#/components/styled-components';
+import { clr, bp } from '#/Global';
+import src_arrowRight from '#/assets/icons/arrow-right.svg';
 
 
 function Join() {

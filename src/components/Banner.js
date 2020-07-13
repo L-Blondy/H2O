@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { fontFam, clr, bp } from "../Global";
+import { fontFam, clr, bp } from "#/Global";
 
 function Banner({ title, headLine, Btn }) {
 	return (
